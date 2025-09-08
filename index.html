@@ -3,60 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mon Portfolio</title>
+  <title>Mon Portfolio • Paolo Antonini</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css" />
+
+  <!-- AOS (animations au scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
 
-  <header>
-    <nav>
-      <h1>Paolo ANTONINI</h1>
-      <ul>
+  <!-- Barre de progression du scroll -->
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <header class="header">
+    <nav class="nav">
+      <h1 class="brand">Paolo ANTONINI</h1>
+      <ul class="nav-links">
         <li><a href="#about">À propos</a></li>
         <li><a href="#projects">Projets</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <div class="hero">
+
+    <div class="hero" data-aos="fade-up">
       <div class="hero-text">
-        <h2>Salut, moi c’est <span>Paolo</span></h2>
-        <p>Développeur web passionné, je crée quelques trucs dans mon coin.</p>
+        <!-- Headline + machine à écrire centrée -->
+        <h2 class="headline">
+          Salut, moi c’est
+          <span class="typing" id="typing" data-text="Paolo">Paolo</span>
+        </h2>
+        <p class="subtitle">Développeur web passionné — j’aime concevoir des interfaces propres, rapides et fun.</p>
+        <div class="cta">
+          <a href="#projects" class="btn">Voir mes projets</a>
+          <a href="#contact" class="btn btn-ghost">Me contacter</a>
+        </div>
       </div>
-      <div class="hero-img">
-        <img src="test_protfolio.jpg" alt="Photo de profil">
+
+      <div class="hero-img" data-aos="zoom-in" data-aos-delay="150">
+        <img src="test_protfolio.jpg" alt="Portrait de Paolo Antonini">
+        <span class="orb orb-1" aria-hidden="true"></span>
+        <span class="orb orb-2" aria-hidden="true"></span>
       </div>
     </div>
   </header>
 
-  <section id="about">
-    <h2>À propos</h2>
-    <p>Je suis un développeur web spécialisé en HTML, CSS et JavaScript. J’aime créer des sites propres et fonctionnels.</p>
-  </section>
+  <main>
+    <section id="about" data-aos="fade-up">
+      <h2>À propos</h2>
+      <p>
+        Je suis un développeur web spécialisé en HTML, CSS et JavaScript.
+        J’adore transformer des idées en expériences fluides et accessibles,
+        avec une attention aux détails (micro-interactions, perfs, accessibilité).
+      </p>
+    </section>
 
-  <section id="projects">
-    <h2>Mes projets</h2>
-    <div class="projects-container">
-      <div class="project">
-        <h3>Steamy</h3>
-        <p>Un petit bot sympa qui permet d'aller check quelques promos de tes jeux préférés.</p>
-      </div>
-      <div class="project">
-        <h3>idk</h3>
-        <p>en dev</p>
-      </div>
-      <!-- autre projet ici -->
-    </div>
-  </section>
+    <section id="projects" data-aos="fade-up">
+      <h2>Mes projets</h2>
+      <div class="projects-container">
+        <article class="project card" data-tilt data-aos="fade-up" data-aos-delay="50">
+          <h3>Steamy</h3>
+          <p>Un bot qui récupère les promos de tes jeux préférés et t’alerte. Focus UX et alertes personnalisées.</p>
+          <a class="link" href="#" aria-disabled="true">Bientôt en ligne</a>
+        </article>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Tu peux me contacter à : <a href="pantonini64@gmail.com">pantonini64@gmail.com</a></p>
-  </section>
+        <article class="project card" data-tilt data-aos="fade-up" data-aos-delay="150">
+          <h3>idk</h3>
+          <p>Un projet expérimental en cours : composants UI animés, perfs, et thèmes dynamiques.</p>
+          <a class="link" href="#" aria-disabled="true">En dev</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p>Tu peux me contacter à :
+        <a href="mailto:pantonini64@gmail.com">pantonini64@gmail.com</a>
+      </p>
+    </section>
+  </main>
 
   <footer>
     <p>&copy; 2025 Paolo ANTONINI. Tous droits réservés.</p>
   </footer>
 
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
