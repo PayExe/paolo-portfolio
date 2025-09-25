@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Portfolio de Paolo Antonini, développeur web passionné. Découvrez mes projets et contactez-moi." />
   <title>Mon Portfolio • Paolo Antonini</title>
 
   <!-- Styles -->
@@ -17,12 +18,12 @@
   <div class="scroll-progress" aria-hidden="true"></div>
 
   <header class="header">
-    <nav class="nav">
+    <nav class="nav" aria-label="Navigation principale">
       <h1 class="brand">Paolo ANTONINI</h1>
       <ul class="nav-links">
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#projects">Projets</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="ensavoirplus.html">À propos</a></li>
+        <li><a href="projetglobal.html">Projets</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
@@ -64,13 +65,13 @@
         <article class="project card" data-tilt data-aos="fade-up" data-aos-delay="50">
           <h3>Steamy</h3>
           <p>Un bot qui récupère les promos de tes jeux préférés et t’alerte. Focus UX et alertes personnalisées.</p>
-          <a class="link" href="#" aria-disabled="true">Bientôt en ligne</a>
+          <a class="link" href="#" aria-disabled="true" tabindex="-1">Bientôt en ligne</a>
         </article>
 
         <article class="project card" data-tilt data-aos="fade-up" data-aos-delay="150">
           <h3>idk</h3>
           <p>Un projet expérimental en cours : composants UI animés, perfs, et thèmes dynamiques.</p>
-          <a class="link" href="#" aria-disabled="true">En dev</a>
+          <a class="link" href="#" aria-disabled="true" tabindex="-1">En dev</a>
         </article>
       </div>
     </section>
@@ -80,6 +81,63 @@
       <p>Tu peux me contacter à :
         <a href="mailto:pantonini64@gmail.com">pantonini64@gmail.com</a>
       </p>
+      <div class="social-profiles">
+        <div class="social-cards">
+          <!-- GitHub Card (gauche) -->
+          <div class="discord-card github-card">
+            <div class="banner">
+              <img src="red.jpg" alt="GitHub Banner">
+            </div>
+            <div class="profile">
+              <img class="avatar" src="https://github.com/Paolo-Antonini.png" alt="GitHub Avatar">
+              <div class="info">
+                <h3 class="pseudo">Paolo-Antonini</h3>
+                <div class="details">
+                  <span class="status" style="color:#db5555;">🔴 Public</span>
+                  <span class="activity" style="color:#b6b9c3;">💻 developper</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Discord Card (centre) -->
+          <div class="discord-card">
+            <div class="banner">
+              <video autoplay muted loop playsinline class="banner-video">
+                <source src="asset.webm" type="video/webm">
+                Votre navigateur ne supporte pas la vidéo.
+              </video>
+            </div>
+            <div class="profile">
+              <img class="avatar" src="cartipfp.png" alt="Discord Avatar">
+              <div class="info">
+                <h3 class="pseudo">pay_exe</h3>
+                <div class="details">
+                  <span class="status">🟢 En ligne</span>
+                  <span class="activity">🎮 Joue à Visual Studio Code</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- LinkedIn Card (droite) -->
+          <div class="discord-card linkedin-card">
+            <div class="banner">
+              <img src="carpekoi.gif" alt="LinkedIn Banner">
+            </div>
+            <div class="profile">
+              <img class="avatar" src="cartipfp.png" alt="LinkedIn Avatar">
+              <div class="info">
+                <h3 class="pseudo">Paolo Antonini</h3>
+                <div class="details">
+                  <span class="status" style="color:#0a66c2;">🔵 Disponible</span>
+                  <span class="activity" style="color:#b6b9c3;">🎓 Ynov Campus Bordeaux | Informatique</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -89,6 +147,31 @@
 
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="script.js"></script>
+  <script>
+  const userId = "902842347115646976";
+  axios.get(`https://api.lanyard.rest/v1/users/${userId}`)
+    .then(res => {
+      const data = res.data.data;
+      document.getElementById("discord-profile").innerHTML = `
+        <div class="discord-card">
+          <div class="banner">
+            <img src="https://cdn.discordapp.com/banners/${userId}/${data.discord_user.banner || 'TON_BANNER_ID'}.png?size=600" alt="Discord Banner">
+          </div>
+          <div class="profile">
+            <img class="avatar" src="https://cdn.discordapp.com/avatars/${userId}/${data.discord_user.avatar}.png?size=128" alt="Discord Avatar">
+            <div class="info">
+              <h3>${data.discord_user.username}#${data.discord_user.discriminator}</h3>
+              <p>ID : ${userId}</p>
+              <span class="status">${data.discord_status === "online" ? "🟢 En ligne" : "⚪ Hors ligne"}</span>
+              ${data.activities.length > 0 ? `<p class="activity">🎮 ${data.activities[0].name}</p>` : ""}
+              <a href="https://discord.com/users/${userId}" target="_blank" class="btn">Voir le profil</a>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  </script>
 </body>
 </html>
