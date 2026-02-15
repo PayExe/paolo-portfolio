@@ -1,0 +1,70 @@
+{
+  "fr": {
+    "hero_label": "Salut, moi c'est",
+    "hero_title": "Paolo Antonini",
+    "hero_desc": "Etudiant en informatique à Ynov Campus Bordeaux. Passionné par le développement web, la cybersécurité et l'intelligence artificielle.",
+    "hero_btn_projects": "Voir mes projets",
+    "hero_btn_contact": "Me contacter",
+
+    "projects_label": "Portfolio",
+    "projects_title": "Mes projets",
+    "view_project": "Voir le projet",
+
+    "education_label": "Parcours",
+    "education_title": "Formation",
+
+    "contact_label": "Contact",
+    "contact_title": "Me contacter",
+    "contact_desc": "Disponible pour un projet, un stage ou toute opportunité. N'hésitez pas à me contacter.",
+    "form_name": "Nom",
+    "form_email": "Email",
+    "form_message": "Votre message...",
+    "form_send": "Envoyer",
+    "location": "Localisation",
+
+    "legal_link": "Mentions légales",
+    "legal_title": "Mentions légales",
+    "legal_editor_title": "Éditeur du site",
+    "legal_editor_text": "Paolo Antonini – Étudiant en informatique. Email : paolo.antonini.dev@gmail.com",
+    "legal_host_title": "Hébergement",
+    "legal_host_text": "Informations d'hébergement à venir une fois le site déployé.",
+    "legal_data_title": "Données personnelles",
+    "legal_data_text": "Ce site ne collecte aucune donnée personnelle. Le formulaire de contact ouvre simplement votre client mail. Aucune information n'est stockée sur un serveur.",
+    "legal_ip_title": "Propriété intellectuelle",
+    "legal_ip_text": "L'ensemble du contenu de ce site (textes, images, code) est la propriété de Paolo Antonini, sauf mention contraire. Toute reproduction sans autorisation est interdite."
+  },
+  "en": {
+    "hero_label": "Hey, I'm",
+    "hero_title": "Paolo Antonini",
+    "hero_desc": "Computer science student at Ynov Campus Bordeaux. Passionate about web development, cybersecurity and artificial intelligence.",
+    "hero_btn_projects": "See my projects",
+    "hero_btn_contact": "Contact me",
+
+    "projects_label": "Portfolio",
+    "projects_title": "My projects",
+    "view_project": "View project",
+
+    "education_label": "Background",
+    "education_title": "Education",
+
+    "contact_label": "Get in Touch",
+    "contact_title": "Contact",
+    "contact_desc": "Available for a project, an internship or any opportunity. Feel free to reach out.",
+    "form_name": "Name",
+    "form_email": "Email",
+    "form_message": "Your message...",
+    "form_send": "Send",
+    "location": "Location",
+
+    "legal_link": "Legal notice",
+    "legal_title": "Legal notice",
+    "legal_editor_title": "Site editor",
+    "legal_editor_text": "Paolo Antonini – Computer science student. Email: paolo.antonini.dev@gmail.com",
+    "legal_host_title": "Hosting",
+    "legal_host_text": "Hosting information will be added once deployed.",
+    "legal_data_title": "Personal data",
+    "legal_data_text": "This site does not collect any personal data. The contact form simply opens your email client. No information is stored on a server.",
+    "legal_ip_title": "Intellectual property",
+    "legal_ip_text": "All content on this site (text, images, code) is the property of Paolo Antonini, unless stated otherwise. Any reproduction without permission is prohibited."
+  }
+}

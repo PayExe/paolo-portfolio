@@ -1,0 +1,81 @@
+/* ── Fonts ── */
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@400;500;600;700&f[]=satoshi@400;500;700&display=swap');
+
+/* ── Variables ── */
+:root,
+[data-theme="dark"] {
+  --bg: #0f1115;
+  --panel: #151922;
+  --text: #e6e6e6;
+  --muted: #8b8fa3;
+  --primary: #00bcd4;
+  --primary-dim: rgba(0, 188, 212, 0.08);
+  --accent: #66ffe6;
+  --btn-text: #0a0d12;
+  --border: rgba(255, 255, 255, 0.06);
+  --shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="light"] {
+  --bg: #f8f9fc;
+  --panel: #ffffff;
+  --text: #1a1d2e;
+  --muted: #6b7084;
+  --primary: #0097a7;
+  --primary-dim: rgba(0, 151, 167, 0.08);
+  --accent: #00838f;
+  --btn-text: #ffffff;
+  --border: rgba(0, 0, 0, 0.08);
+  --shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Clash Display', sans-serif;
+  line-height: 1.15;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--btn-text);
+}
