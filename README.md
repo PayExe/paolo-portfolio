@@ -1,79 +1,26 @@
-# Paolo Antonini - Portfolio
 
-Portfolio personnel simple et moderne créé avec HTML, CSS et JavaScript vanilla.
 
-## 🚀 Quick Start
+# Portfolio – Paolo Antonini
 
-Ouvrez simplement `index.html` dans votre navigateur !
+Bienvenue sur mon site personnel !
 
-## 📁 Structure
+Ce portfolio présente mon parcours, mes projets, et un peu de ma personnalité. J’ai voulu un site simple, moderne, animé et agréable à parcourir, que ce soit sur mobile ou ordinateur.
 
-```
-portfolio/
-├── index.html          # Page principale
-├── css/
-│   └── style.css      # Tous les styles
-├── js/
-│   └── main.js        # Interactivité JavaScript
-├── img/               # Images du portfolio
-└── README.md
-```
+Le site est développé avec React, Vite et Framer Motion pour les animations, mais l’essentiel reste le contenu :
 
-## ✨ Fonctionnalités
+- Une page d’accueil pour se présenter
+- Une section projets pour découvrir ce que j’ai réalisé
+- Un espace contact pour échanger facilement
+- Un mode clair/sombre et une navigation fluide
 
-- Design moderne et responsive
-- Navigation fluide avec smooth scroll
-- Animations au scroll
-- Menu mobile hamburger
-- Formulaire de contact fonctionnel
-- 100% Vanilla JS (pas de framework)
-
-## 🎨 Personnalisation
-
-### Couleurs
-Modifiez les variables CSS dans `css/style.css` :
-```css
-:root {
-    --primary-color: #667eea;
-    --secondary-color: #764ba2;
-    --accent-color: #f093fb;
-}
-```
-
-### Contenu
-Éditez directement le fichier `index.html` pour modifier :
-- Vos informations personnelles
-- Vos projets
-- Vos compétences
-- Vos liens sociaux
-
-## 🌐 Déploiement
-
-### GitHub Pages
-1. Push le code sur GitHub
-2. Allez dans Settings > Pages
-3. Sélectionnez la branche main
-4. Votre site sera disponible à l'adresse : `https://username.github.io/repo-name`
-
-### Netlify
-1. Glissez-déposez le dossier sur [Netlify](https://app.netlify.com/)
-2. C'est en ligne !
-
-### Vercel
-```bash
-npm i -g vercel
-vercel
-```
-
-## 📄 Licence
-
-MIT - Libre d'utilisation
-
-## 👤 Auteur
-
-**Paolo Antonini**
-- GitHub: [@paolo](https://github.com/paolo)
-- Email: contact@paolo.com
+Tout est pensé pour être rapide, accessible et vivant.
 
 ---
-**Créé avec ❤️ en HTML, CSS & JS**
+
+**Paolo Antonini**  
+Étudiant en informatique & passionné de dev
+
+Contact : paolo.antonini.dev@gmail.com
+
+---
+*Site réalisé avec React, Vite & Framer Motion.*
