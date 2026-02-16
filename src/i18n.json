@@ -1,9 +1,9 @@
 {
   "fr": {
-    "hero_label": "Hey, moi c'est Paolo ^^",
+    "hero_label": "Hey :P",
     "hero_title": "Paolo Antonini",
-    "hero_subtitle": "Étudiant en informatique & passionné de dev",
-    "hero_desc": "Passionné par le développement, le game dev et la tech en général. J'aime créer des trucs, apprendre en faisant, et partager mes projets.",
+    "hero_subtitle": "Étudiant en informatique",
+    "hero_desc": "Passionné par le développement, le game dev et la tech en général. J’adore imaginer, concevoir et donner vie à des idées, apprendre en expérimentant, et partager mes réalisations avec les autres.",
     "hero_btn_projects": "Voir mes projets",
     "hero_btn_contact": "Me contacter",
 
@@ -41,10 +41,10 @@
     "legal_ip_text": "L'ensemble du contenu de ce site (textes, images, code) est la propriété de Paolo Antonini, sauf mention contraire. Toute reproduction sans autorisation est interdite."
   },
   "en": {
-    "hero_label": "Hey, I'm Paolo ^^",
+    "hero_label": "Hey :P",
     "hero_title": "Paolo Antonini",
-    "hero_subtitle": "CS Student & passionate developer",
-    "hero_desc": "Passionate about development, game dev and tech in general. I love building things, learning by doing, and sharing my projects.",
+    "hero_subtitle": "CS Student",
+    "hero_desc": "assionate about development, game dev and tech in general. I love building things, learning by doing, and sharing my projects.",
     "hero_btn_projects": "See my projects",
     "hero_btn_contact": "Contact me",
 

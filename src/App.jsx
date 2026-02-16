@@ -144,8 +144,8 @@ const personalProjects = [
       fr: "Un de mes projets les plus ambitieux. Osadeo Studio c'est un studio indépendant de jeux vidéo créé entre amis, par passion. On travaille actuellement sur notre premier jeu sous Godot. C'est un projet long terme qui nous tient vraiment à coeur.",
       en: "One of my most ambitious projects. Osadeo Studio is an independent video game studio created between friends, out of passion. We're currently working on our first game in Godot. It's a long-term project that we really care about.",
     },
-    tags: ['Godot', 'GDScript', 'Game Dev'],
-    link: 'https://github.com/osadeo-studio',
+    tags: ['Groupe', 'Studio Indé', 'Game Dev'],
+    link: 'https://osadeo.com/',
   },
   {
     id: 'bhost',
@@ -189,20 +189,20 @@ const schoolProjects = [
     id: 'power4',
     title: 'Power 4',
     desc: {
-      fr: "Puissance 4 jouable en terminal, écrit en C. Projet réalisé en première année à Ynov.",
-      en: 'Connect 4 playable in terminal, written in C. First year project at Ynov.',
+      fr: "Puissance 4 jouable en sur une interface web, avec un backend en Go. Projet réalisé en première année à Ynov.",
+      en: 'Connect 4 playable on a web interface, with a Go backend. First year project at Ynov.',
     },
-    tags: ['C', 'Terminal'],
+    tags: ['Go', 'Web'],
     link: 'https://ytrack.learn.ynov.com/git/gvincent/Power4.git',
   },
   {
     id: 'gigamania',
     title: 'Giga Mania',
     desc: {
-      fr: "Site e-commerce de jeux vidéo en PHP orienté objet avec gestion de panier et base de données. Projet de groupe en première année.",
-      en: 'Video game e-commerce site in object-oriented PHP with cart management and database. Group project in first year.',
+      fr: "Site e-commerce de jeux vidéo en Java orienté objet et JavaFX avec gestion de panier et base de données. Projet de groupe en première année.",
+      en: 'Video game e-commerce site in object-oriented Java and JavaFX with cart management and database. Group project in first year.',
     },
-    tags: ['PHP', 'OOP', 'MySQL'],
+    tags: ['Java', 'JavaFX'],
     link: 'https://github.com/SkyVence/poo-game-shop',
   },
 ]
@@ -220,7 +220,7 @@ function Projects({ lang }) {
         <h2 className="section-title">{t(lang, 'projects_title')}</h2>
       </motion.div>
 
-      {/* Timeline - Personal projects (skyvence style: date on the side) */}
+      {/* Timeline - Personal projects  */}
       <div className="projects-timeline">
         {personalProjects.map((p, i) => (
           <motion.div
