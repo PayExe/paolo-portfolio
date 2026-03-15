@@ -1,6 +1,3 @@
-/* ═══════════════════════════════════════
-   PAGE TRANSITION OVERLAY
-   ═══════════════════════════════════════ */
 .page-transition-overlay {
   position: fixed;
   inset: 0;
@@ -16,9 +13,6 @@
   pointer-events: all;
 }
 
-/* ═══════════════════════════════════════
-   CODE RAIN BACKGROUND
-   ═══════════════════════════════════════ */
 .hsr-bg {
   position: fixed;
   inset: 0;
@@ -27,7 +21,6 @@
   overflow: hidden;
 }
 
-/* Colonne scrollante — gauche et droite */
 .hsr-bg .code-col {
   position: absolute;
   top: 0;
@@ -82,9 +75,6 @@
   to   { transform: translateY(0); }
 }
 
-/* ═══════════════════════════════════════
-   NAVBAR
-   ═══════════════════════════════════════ */
 .navbar {
   position: fixed;
   top: 0;
@@ -204,7 +194,6 @@
   color: inherit;
 }
 
-/* Burger */
 .burger {
   display: none;
   flex-direction: column;
@@ -231,9 +220,6 @@
 .burger.active span:nth-child(2) { opacity: 0; }
 .burger.active span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-/* ═══════════════════════════════════════
-   HERO
-   ═══════════════════════════════════════ */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -243,7 +229,6 @@
   overflow: hidden;
 }
 
-/* Radial glow behind hero */
 .hero::before {
   content: '';
   position: absolute;
@@ -269,8 +254,6 @@
   align-items: center;
   width: 100%;
 }
-
-/* Label above name — REMOVED, kept for compat */
 
 .hero-text h1 {
   font-size: 4rem;
@@ -307,7 +290,6 @@
   flex-wrap: wrap;
 }
 
-/* Photo wrapper avec cadre SVG */
 .hero-photo-wrapper {
   position: relative;
   display: flex;
@@ -318,7 +300,6 @@
   height: 310px;
 }
 
-/* Le SVG du cadre enveloppe la photo */
 .photo-frame-svg {
   position: absolute;
   inset: -20px;
@@ -349,9 +330,6 @@
   filter: grayscale(0%);
 }
 
-/* ═══════════════════════════════════════
-   BUTTONS
-   ═══════════════════════════════════════ */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -400,9 +378,6 @@
   background: var(--primary-dim);
 }
 
-/* ═══════════════════════════════════════
-   SECTION DIVIDER — calligraphie HSR
-   ═══════════════════════════════════════ */
 .section-divider {
   max-width: 1140px;
   margin: 0 auto;
@@ -438,9 +413,6 @@
   opacity: 0.92;
 }
 
-/* ═══════════════════════════════════════
-   SECTIONS COMMON
-   ═══════════════════════════════════════ */
 .projects-section,
 .education-section,
 .contact-section {
@@ -485,9 +457,6 @@
   color: var(--text);
 }
 
-/* ═══════════════════════════════════════
-   PROJECTS TIMELINE
-   ═══════════════════════════════════════ */
 .projects-timeline {
   position: relative;
   display: flex;
@@ -495,10 +464,9 @@
   gap: 0;
 }
 
-/* Liane SVG qui court à gauche */
 .timeline-vine-wrapper {
   position: absolute;
-  left: 106px; /* aligne avec project-line column */
+  left: 106px;
   top: 0;
   bottom: 0;
   width: 24px;
@@ -586,7 +554,6 @@
   border-width: 1.5px;
 }
 
-/* Subtle top glow on card */
 .project-card::before {
   content: '';
   position: absolute;
@@ -632,7 +599,8 @@
   line-height: 1.65;
 }
 
-.badge-progress {
+.badge-progress,
+.badge-school {
   display: inline-block;
   font-size: 0.65rem;
   font-weight: 700;
@@ -685,9 +653,6 @@
   opacity: 0.8;
 }
 
-/* ═══════════════════════════════════════
-   SCHOOL PROJECTS
-   ═══════════════════════════════════════ */
 .school-projects-header {
   margin-top: 72px;
   margin-bottom: 28px;
@@ -770,23 +735,6 @@
   margin-bottom: 14px;
 }
 
-.badge-school {
-  display: inline-block;
-  font-size: 0.65rem;
-  font-weight: 700;
-  font-family: 'Satoshi', sans-serif;
-  padding: 3px 9px;
-  border-radius: 20px;
-  background: var(--gold-dim);
-  color: var(--gold);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  border: 1px solid var(--border);
-}
-
-/* ═══════════════════════════════════════
-   EDUCATION
-   ═══════════════════════════════════════ */
 .edu-stack {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -884,9 +832,6 @@
   margin-top: 4px;
 }
 
-/* ═══════════════════════════════════════
-   CONTACT
-   ═══════════════════════════════════════ */
 .contact-grid {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
@@ -945,7 +890,6 @@
   min-height: 128px;
 }
 
-/* Info side */
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -1057,9 +1001,6 @@
   box-shadow: 0 8px 20px var(--primary-glow);
 }
 
-/* ═══════════════════════════════════════
-   FOOTER
-   ═══════════════════════════════════════ */
 .footer {
   position: relative;
   z-index: 1;
@@ -1109,9 +1050,6 @@
   opacity: 1;
 }
 
-/* ═══════════════════════════════════════
-   LEGAL MODAL
-   ═══════════════════════════════════════ */
 .legal-overlay {
   position: fixed;
   inset: 0;
@@ -1181,9 +1119,6 @@
   line-height: 1.7;
 }
 
-/* ═══════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════ */
 @media (max-width: 1000px) {
   .hero-grid {
     grid-template-columns: 1fr;

@@ -3,12 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion'
 import translations from './i18n.json'
 import './App.css'
 
-/* ───────── helpers ───────── */
 function t(lang, key) {
   return translations[lang]?.[key] ?? key
 }
 
-/* ───────── useActiveSection hook ───────── */
 function useActiveSection(sectionIds) {
   const [active, setActive] = useState('')
 
@@ -33,7 +31,6 @@ function useActiveSection(sectionIds) {
   return active
 }
 
-/* ───────── Code Rain Background ───────── */
 const CODE_LEFT = [
   "import { useState,",
   "  useEffect,",
@@ -200,55 +197,40 @@ function HsrBg() {
   )
 }
 
-/* ───────── Page Transition Overlay ───────── */
 function PageTransition({ active }) {
   return (
     <div className={`page-transition-overlay ${active ? 'active' : ''}`} />
   )
 }
 
-/* ───────── Section Divider — calligraphie HSR ───────── */
 function SectionDivider() {
   return (
     <div className="section-divider" aria-hidden="true">
-      {/* Bras gauche */}
       <svg className="divider-arm divider-arm-left" viewBox="0 0 400 32" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMaxYMid meet">
-        {/* Ligne principale */}
         <path d="M0 16 L320 16 C340 16 355 12 370 16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-        {/* Double trait parallèle */}
         <path d="M240 16 L340 16" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.45" transform="translate(0 -4)"/>
         <path d="M240 16 L340 16" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.45" transform="translate(0 4)"/>
-        {/* Triangle calligraphique effilé */}
         <path d="M370 16 L390 9 L400 16 L390 23 Z" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinejoin="round"/>
-        {/* Tiret intérieur */}
         <path d="M378 16 L392 16" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.6"/>
-        {/* Croisillons ornementaux */}
         <path d="M48 16 L48 9 M44 12.5 L52 12.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" opacity="0.5"/>
         <path d="M80 16 L80 9 M76 12.5 L84 12.5" stroke="currentColor" strokeWidth="1.0" strokeLinecap="round" opacity="0.35"/>
         <path d="M116 16 L116 10 M112 13 L120 13" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round" opacity="0.25"/>
       </svg>
 
-      {/* Centre ornemental — style HSR glyph */}
       <svg className="divider-center" viewBox="0 0 80 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Losange principal */}
         <path d="M40 3 L61 16 L40 29 L19 16 Z" stroke="currentColor" strokeWidth="1.8" fill="none"/>
-        {/* Losange intérieur */}
         <path d="M40 9 L53 16 L40 23 L27 16 Z" stroke="currentColor" strokeWidth="1.0" fill="none" opacity="0.55"/>
-        {/* Point central */}
         <circle cx="40" cy="16" r="2.5" fill="currentColor" opacity="0.9"/>
-        {/* Pointes aux 4 sommets */}
         <path d="M40 3 L40 0" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
         <path d="M40 29 L40 32" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
         <path d="M61 16 L64 16" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
         <path d="M19 16 L16 16" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
-        {/* Traits aux 45° */}
         <path d="M33 9 L29 5" stroke="currentColor" strokeWidth="1.0" strokeLinecap="round" opacity="0.5"/>
         <path d="M47 9 L51 5" stroke="currentColor" strokeWidth="1.0" strokeLinecap="round" opacity="0.5"/>
         <path d="M33 23 L29 27" stroke="currentColor" strokeWidth="1.0" strokeLinecap="round" opacity="0.5"/>
         <path d="M47 23 L51 27" stroke="currentColor" strokeWidth="1.0" strokeLinecap="round" opacity="0.5"/>
       </svg>
 
-      {/* Bras droit (miroir) */}
       <svg className="divider-arm divider-arm-right" viewBox="0 0 400 32" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMid meet">
         <path d="M400 16 L80 16 C60 16 45 12 30 16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
         <path d="M160 16 L60 16" stroke="currentColor" strokeWidth="1" strokeLinecap="round" opacity="0.45" transform="translate(0 -4)"/>
@@ -263,7 +245,6 @@ function SectionDivider() {
   )
 }
 
-/* ───────── Navbar ───────── */
 function Navbar({ lang, setLang, theme, setTheme, activeSection, onNavClick }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -328,7 +309,6 @@ function Navbar({ lang, setLang, theme, setTheme, activeSection, onNavClick }) {
   )
 }
 
-/* ───────── Hero ───────── */
 function Hero({ lang }) {
   return (
     <section className="hero" id="about">
@@ -357,75 +337,41 @@ function Hero({ lang }) {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          {/* Cadre géométrique style HSR */}
           <svg className="photo-frame-svg" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            {/* ── Coins L principaux ── */}
-            {/* Haut-gauche */}
             <path d="M8 64 L8 8 L64 8" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"/>
-            {/* Haut-droit */}
             <path d="M272 64 L272 8 L216 8" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"/>
-            {/* Bas-gauche */}
             <path d="M8 216 L8 272 L64 272" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"/>
-            {/* Bas-droit */}
             <path d="M272 216 L272 272 L216 272" stroke="currentColor" strokeWidth="2" strokeLinecap="square" strokeLinejoin="miter"/>
-
-            {/* ── Détails intérieurs coins — double L ── */}
-            {/* HG */}
             <path d="M16 52 L16 16 L52 16" stroke="currentColor" strokeWidth="0.8" strokeLinecap="square" opacity="0.4"/>
-            {/* HD */}
             <path d="M264 52 L264 16 L228 16" stroke="currentColor" strokeWidth="0.8" strokeLinecap="square" opacity="0.4"/>
-            {/* BG */}
             <path d="M16 228 L16 264 L52 264" stroke="currentColor" strokeWidth="0.8" strokeLinecap="square" opacity="0.4"/>
-            {/* BD */}
             <path d="M264 228 L264 264 L228 264" stroke="currentColor" strokeWidth="0.8" strokeLinecap="square" opacity="0.4"/>
-
-            {/* ── Losanges aux angles des coins L ── */}
-            {/* HG */}
             <path d="M8 8 L13 13 L8 18 L3 13 Z" stroke="currentColor" strokeWidth="1" fill="none"/>
-            {/* HD */}
             <path d="M272 8 L277 13 L272 18 L267 13 Z" stroke="currentColor" strokeWidth="1" fill="none"/>
-            {/* BG */}
             <path d="M8 272 L13 267 L8 262 L3 267 Z" stroke="currentColor" strokeWidth="1" fill="none"/>
-            {/* BD */}
             <path d="M272 272 L277 267 L272 262 L267 267 Z" stroke="currentColor" strokeWidth="1" fill="none"/>
-
-            {/* ── Ornements milieu bords — tiret + losange ── */}
-            {/* Haut */}
             <line x1="124" y1="8" x2="156" y2="8" stroke="currentColor" strokeWidth="1.2" opacity="0.5"/>
             <path d="M140 4 L144 8 L140 12 L136 8 Z" stroke="currentColor" strokeWidth="0.9" fill="none" opacity="0.6"/>
-            {/* Bas */}
             <line x1="124" y1="272" x2="156" y2="272" stroke="currentColor" strokeWidth="1.2" opacity="0.5"/>
             <path d="M140 268 L144 272 L140 276 L136 272 Z" stroke="currentColor" strokeWidth="0.9" fill="none" opacity="0.6"/>
-            {/* Gauche */}
             <line x1="8" y1="124" x2="8" y2="156" stroke="currentColor" strokeWidth="1.2" opacity="0.5"/>
             <path d="M4 140 L8 136 L12 140 L8 144 Z" stroke="currentColor" strokeWidth="0.9" fill="none" opacity="0.6"/>
-            {/* Droite */}
             <line x1="272" y1="124" x2="272" y2="156" stroke="currentColor" strokeWidth="1.2" opacity="0.5"/>
             <path d="M268 140 L272 136 L276 140 L272 144 Z" stroke="currentColor" strokeWidth="0.9" fill="none" opacity="0.6"/>
-
-            {/* ── Petits tirets décoratifs sur les bras des coins ── */}
-            {/* HG bras H */}
             <line x1="32" y1="8" x2="32" y2="14" stroke="currentColor" strokeWidth="1" opacity="0.35"/>
             <line x1="46" y1="8" x2="46" y2="13" stroke="currentColor" strokeWidth="0.8" opacity="0.25"/>
-            {/* HG bras V */}
             <line x1="8" y1="32" x2="14" y2="32" stroke="currentColor" strokeWidth="1" opacity="0.35"/>
             <line x1="8" y1="46" x2="13" y2="46" stroke="currentColor" strokeWidth="0.8" opacity="0.25"/>
-            {/* HD bras H */}
             <line x1="248" y1="8" x2="248" y2="14" stroke="currentColor" strokeWidth="1" opacity="0.35"/>
             <line x1="234" y1="8" x2="234" y2="13" stroke="currentColor" strokeWidth="0.8" opacity="0.25"/>
-            {/* HD bras V */}
             <line x1="272" y1="32" x2="266" y2="32" stroke="currentColor" strokeWidth="1" opacity="0.35"/>
             <line x1="272" y1="46" x2="267" y2="46" stroke="currentColor" strokeWidth="0.8" opacity="0.25"/>
-            {/* BG bras H */}
             <line x1="32" y1="272" x2="32" y2="266" stroke="currentColor" strokeWidth="1" opacity="0.35"/>
             <line x1="46" y1="272" x2="46" y2="267" stroke="currentColor" strokeWidth="0.8" opacity="0.25"/>
-            {/* BG bras V */}
             <line x1="8" y1="248" x2="14" y2="248" stroke="currentColor" strokeWidth="1" opacity="0.35"/>
             <line x1="8" y1="234" x2="13" y2="234" stroke="currentColor" strokeWidth="0.8" opacity="0.25"/>
-            {/* BD bras H */}
             <line x1="248" y1="272" x2="248" y2="266" stroke="currentColor" strokeWidth="1" opacity="0.35"/>
             <line x1="234" y1="272" x2="234" y2="267" stroke="currentColor" strokeWidth="0.8" opacity="0.25"/>
-            {/* BD bras V */}
             <line x1="272" y1="248" x2="266" y2="248" stroke="currentColor" strokeWidth="1" opacity="0.35"/>
             <line x1="272" y1="234" x2="267" y2="234" stroke="currentColor" strokeWidth="0.8" opacity="0.25"/>
           </svg>
@@ -437,7 +383,6 @@ function Hero({ lang }) {
   )
 }
 
-/* ───────── Projects ───────── */
 const personalProjects = [
   {
     id: 'osadeo',
@@ -524,49 +469,28 @@ function Projects({ lang }) {
       </motion.div>
 
       <div className="projects-timeline">
-        {/* Liane SVG qui court le long de la timeline */}
         <div className="timeline-vine-wrapper" aria-hidden="true">
           <svg className="timeline-vine" viewBox="0 0 24 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
-            {/* Stem principal légèrement ondulé */}
             <path d="M12 0 C10 60 14 120 12 180 C10 240 14 300 12 360 C10 420 14 480 12 540 C10 600 14 660 12 720 C11 760 12 800 12 800" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-            {/* Petites feuilles qui partent à gauche et droite tout le long */}
-            {/* Feuille gauche 1 */}
             <path d="M12 80 C6 72 0 68 -2 72 C-4 76 2 82 12 80Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            {/* Feuille droite 1 */}
             <path d="M12 80 C18 72 24 68 26 72 C28 76 22 82 12 80Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            {/* Vrille gauche 1 */}
             <path d="M11 110 C8 104 3 102 2 106" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
-            {/* Feuille gauche 2 */}
             <path d="M12 200 C5 190 -2 187 -4 192 C-6 197 2 204 12 200Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            {/* Feuille droite 2 */}
             <path d="M12 200 C19 190 26 187 28 192 C30 197 22 204 12 200Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            {/* Vrille droite 1 */}
             <path d="M13 240 C16 234 21 232 22 236" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
-            {/* Bourgeon */}
             <ellipse cx="12" cy="270" rx="3.5" ry="5" stroke="currentColor" strokeWidth="1" fill="none"/>
             <path d="M12 265 L12 260" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
-            {/* Feuille gauche 3 */}
             <path d="M12 340 C4 328 -4 325 -6 331 C-8 337 1 345 12 340Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            {/* Feuille droite 3 */}
             <path d="M12 340 C20 328 28 325 30 331 C32 337 23 345 12 340Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            {/* Vrille gauche 2 */}
             <path d="M11 380 C7 373 2 372 0 376" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
-            {/* Feuille gauche 4 */}
             <path d="M12 460 C5 450 -1 447 -3 452 C-5 457 3 464 12 460Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            {/* Feuille droite 4 */}
             <path d="M12 460 C19 450 25 447 27 452 C29 457 21 464 12 460Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            {/* Bourgeon 2 */}
             <ellipse cx="12" cy="520" rx="3" ry="4.5" stroke="currentColor" strokeWidth="1" fill="none"/>
             <path d="M12 515 L12 510" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
-            {/* Vrille droite 2 */}
             <path d="M13 550 C17 543 22 542 23 546" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
-            {/* Feuille gauche 5 */}
             <path d="M12 620 C4 609 -3 606 -5 612 C-7 618 2 625 12 620Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            {/* Feuille droite 5 */}
             <path d="M12 620 C20 609 27 606 29 612 C31 618 22 625 12 620Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            {/* Vrille gauche 3 */}
             <path d="M11 680 C7 673 2 671 0 675" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
-            {/* Petite feuille finale */}
             <path d="M12 740 C7 732 2 730 1 734 C0 738 5 743 12 740Z" stroke="currentColor" strokeWidth="1" fill="none" strokeLinejoin="round"/>
             <path d="M12 740 C17 732 22 730 23 734 C24 738 19 743 12 740Z" stroke="currentColor" strokeWidth="1" fill="none" strokeLinejoin="round"/>
           </svg>
@@ -649,7 +573,6 @@ function Projects({ lang }) {
   )
 }
 
-/* ───────── Education ───────── */
 function Education({ lang }) {
   const items = [
     {
@@ -718,7 +641,6 @@ function Education({ lang }) {
   )
 }
 
-/* ───────── Contact ───────── */
 function Contact({ lang }) {
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -830,7 +752,6 @@ function Contact({ lang }) {
   )
 }
 
-/* ───────── Legal Modal ───────── */
 function LegalModal({ open, onClose, lang }) {
   const overlayRef = useRef()
 
@@ -889,7 +810,6 @@ function LegalModal({ open, onClose, lang }) {
   )
 }
 
-/* ───────── App ───────── */
 const sectionIds = ['about', 'projects', 'education', 'contact']
 
 export default function App() {
