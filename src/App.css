@@ -475,9 +475,13 @@
 }
 
 .timeline-vine {
-  width: 24px;
-  height: 100%;
-  color: var(--primary);
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1.8px;
+  transform: translateX(-50%);
+  background: var(--primary);
   opacity: 0.18;
 }
 
@@ -1269,4 +1273,21 @@
   .legal-modal {
     padding: 28px 20px;
   }
+}
+
+.credit-link {
+  margin-top: 6px;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.credit-link a {
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.credit-link a:hover {
+  text-decoration: underline;
 }

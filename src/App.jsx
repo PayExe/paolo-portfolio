@@ -470,30 +470,7 @@ function Projects({ lang }) {
 
       <div className="projects-timeline">
         <div className="timeline-vine-wrapper" aria-hidden="true">
-          <svg className="timeline-vine" viewBox="0 0 24 800" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet">
-            <path d="M12 0 C10 60 14 120 12 180 C10 240 14 300 12 360 C10 420 14 480 12 540 C10 600 14 660 12 720 C11 760 12 800 12 800" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
-            <path d="M12 80 C6 72 0 68 -2 72 C-4 76 2 82 12 80Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            <path d="M12 80 C18 72 24 68 26 72 C28 76 22 82 12 80Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            <path d="M11 110 C8 104 3 102 2 106" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
-            <path d="M12 200 C5 190 -2 187 -4 192 C-6 197 2 204 12 200Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            <path d="M12 200 C19 190 26 187 28 192 C30 197 22 204 12 200Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            <path d="M13 240 C16 234 21 232 22 236" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
-            <ellipse cx="12" cy="270" rx="3.5" ry="5" stroke="currentColor" strokeWidth="1" fill="none"/>
-            <path d="M12 265 L12 260" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
-            <path d="M12 340 C4 328 -4 325 -6 331 C-8 337 1 345 12 340Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            <path d="M12 340 C20 328 28 325 30 331 C32 337 23 345 12 340Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            <path d="M11 380 C7 373 2 372 0 376" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
-            <path d="M12 460 C5 450 -1 447 -3 452 C-5 457 3 464 12 460Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            <path d="M12 460 C19 450 25 447 27 452 C29 457 21 464 12 460Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            <ellipse cx="12" cy="520" rx="3" ry="4.5" stroke="currentColor" strokeWidth="1" fill="none"/>
-            <path d="M12 515 L12 510" stroke="currentColor" strokeWidth="1" strokeLinecap="round"/>
-            <path d="M13 550 C17 543 22 542 23 546" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
-            <path d="M12 620 C4 609 -3 606 -5 612 C-7 618 2 625 12 620Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            <path d="M12 620 C20 609 27 606 29 612 C31 618 22 625 12 620Z" stroke="currentColor" strokeWidth="1.1" fill="none" strokeLinejoin="round"/>
-            <path d="M11 680 C7 673 2 671 0 675" stroke="currentColor" strokeWidth="0.9" strokeLinecap="round"/>
-            <path d="M12 740 C7 732 2 730 1 734 C0 738 5 743 12 740Z" stroke="currentColor" strokeWidth="1" fill="none" strokeLinejoin="round"/>
-            <path d="M12 740 C17 732 22 730 23 734 C24 738 19 743 12 740Z" stroke="currentColor" strokeWidth="1" fill="none" strokeLinejoin="round"/>
-          </svg>
+          <div className="timeline-vine" />
         </div>
 
         {personalProjects.map((p, i) => (
@@ -847,8 +824,8 @@ function CreditsModal({ open, onClose, lang }) {
             <h2>{t(lang, 'credits_title')}</h2>
             <div className="legal-section">
               <h3>{t(lang, 'credits_react_title')}</h3>
-              <p>
-                {t(lang, 'credits_react_text')}{' '}
+              <p>{t(lang, 'credits_react_text')}</p>
+              <p className="credit-link">
                 <a href="https://github.com/Skyvence" target="_blank" rel="noopener noreferrer">github.com/Skyvence</a>
               </p>
             </div>
