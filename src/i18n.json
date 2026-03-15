@@ -3,7 +3,7 @@
     "hero_label": "Disponible pour des projets",
     "hero_title": "Paolo Antonini",
     "hero_subtitle": "Étudiant en informatique",
-    "hero_desc": "Passionné par le développement, le game dev et la tech en général. J’adore imaginer, concevoir et donner vie à des idées, apprendre en expérimentant, et partager mes réalisations avec les autres.",
+    "hero_desc": "Passionné par l'informatique, j'aime imaginer et développer des projets variés. Chaque projet est pour moi une occasion d'apprendre, d'expérimenter et d'améliorer mes compétences.",
     "hero_btn_projects": "Voir mes projets",
     "hero_btn_contact": "Me contacter",
 
@@ -38,7 +38,16 @@
     "legal_data_title": "Données personnelles",
     "legal_data_text": "Ce site ne collecte aucune donnée personnelle. Le formulaire de contact ouvre simplement votre client mail. Aucune information n'est stockée sur un serveur.",
     "legal_ip_title": "Propriété intellectuelle",
-    "legal_ip_text": "L'ensemble du contenu de ce site (textes, images, code) est la propriété de Paolo Antonini, sauf mention contraire. Toute reproduction sans autorisation est interdite."
+    "legal_ip_text": "L'ensemble du contenu de ce site (textes, images, code) est la propriété de Paolo Antonini, sauf mention contraire. Toute reproduction sans autorisation est interdite.",
+
+    "credits_link": "Fun fact",
+    "credits_title": "Fun fact & Crédits",
+    "credits_react_title": "React & remerciements",
+    "credits_react_text": "Ce site a été réalisé en React — une technologie qui m'a été enseignée par Skyvence (Antoine Mathié), à qui je dois un grand merci.",
+    "credits_self_title": "Le reste",
+    "credits_self_text": "Appris par moi-même, à force d'essais et d'erreurs.",
+    "credits_bg_title": "Easter egg",
+    "credits_bg_text": "Les lignes qui défilent en arrière-plan sont de vraies lignes du code source de ce site."
   },
   "en": {
     "hero_label": "Available for projects",
@@ -79,6 +88,15 @@
     "legal_data_title": "Personal data",
     "legal_data_text": "This site does not collect any personal data. The contact form simply opens your email client. No information is stored on a server.",
     "legal_ip_title": "Intellectual property",
-    "legal_ip_text": "All content on this site (text, images, code) is the property of Paolo Antonini, unless stated otherwise. Any reproduction without permission is prohibited."
+    "legal_ip_text": "All content on this site (text, images, code) is the property of Paolo Antonini, unless stated otherwise. Any reproduction without permission is prohibited.",
+
+    "credits_link": "Fun fact",
+    "credits_title": "Fun fact & Credits",
+    "credits_react_title": "React & thanks",
+    "credits_react_text": "This site was built with React — a technology I was taught by Skyvence (Antoine Mathié), to whom I owe a big thank you.",
+    "credits_self_title": "The rest",
+    "credits_self_text": "Self-taught, through trial and error.",
+    "credits_bg_title": "Easter egg",
+    "credits_bg_text": "The lines scrolling in the background are real lines from this site's source code."
   }
 }

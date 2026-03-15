@@ -423,7 +423,7 @@ const personalProjects = [
     date: { fr: 'Juil 2025', en: 'Jul 2025' },
     title: 'Steamy',
     desc: {
-      fr: "Bot Discord qui connecte mon serveur à Steam. Wishlist personnelle, recherche de jeux, fiches détaillées avec prix et évaluations, jeu au hasard, autocomplete, restriction par salon et anti-spam. Mon premier vrai projet perso en JavaScript.",
+      fr: "Steamy est un bot Discord qui permet de créer et gérer une wishlist de jeux Steam. Il analyse régulièrement les promotions et notifie les utilisateurs lorsque les jeux suivis passent en réduction. Le projet inclut également plusieurs fonctionnalités supplémentaires pour améliorer l'expérience utilisateur.",
       en: "Discord bot connecting my server to Steam. Personal wishlist, game search, detailed info with prices and reviews, random game, autocomplete, channel restriction and anti-spam. My first real personal JS project.",
     },
     tags: ['Discord.js', 'Node.js', 'Steam API'],
@@ -523,7 +523,7 @@ function Projects({ lang }) {
                 {p.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
               </div>
               <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
-                {t(lang, 'view_project')} →
+                {t(lang, 'view_project')}
               </a>
             </div>
           </motion.div>
@@ -564,7 +564,7 @@ function Projects({ lang }) {
               {p.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
             </div>
             <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
-              {t(lang, 'view_repo')} →
+              {t(lang, 'view_repo')}
             </a>
           </motion.div>
         ))}
@@ -810,12 +810,72 @@ function LegalModal({ open, onClose, lang }) {
   )
 }
 
+function CreditsModal({ open, onClose, lang }) {
+  const overlayRef = useRef()
+
+  useEffect(() => {
+    if (open) document.body.style.overflow = 'hidden'
+    else document.body.style.overflow = ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
+
+  if (!open) return null
+
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="legal-overlay"
+          ref={overlayRef}
+          onClick={(e) => { if (e.target === overlayRef.current) onClose() }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div
+            className="legal-modal"
+            initial={{ opacity: 0, y: 32, scale: 0.97 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 32, scale: 0.97 }}
+            transition={{ ease: [0.22, 1, 0.36, 1] }}
+          >
+            <button className="legal-close" onClick={onClose}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="20" height="20">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <h2>{t(lang, 'credits_title')}</h2>
+            <div className="legal-section">
+              <h3>{t(lang, 'credits_react_title')}</h3>
+              <p>
+                {t(lang, 'credits_react_text')}{' '}
+                <a href="https://github.com/Skyvence" target="_blank" rel="noopener noreferrer">github.com/Skyvence</a>
+              </p>
+            </div>
+            <div className="legal-section">
+              <h3>{t(lang, 'credits_self_title')}</h3>
+              <p>{t(lang, 'credits_self_text')}</p>
+            </div>
+            <div className="legal-section">
+              <h3>{t(lang, 'credits_bg_title')}</h3>
+              <p>{t(lang, 'credits_bg_text')}</p>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  )
+}
+
+
+
 const sectionIds = ['about', 'projects', 'education', 'contact']
 
 export default function App() {
   const [lang, setLang]       = useState(() => localStorage.getItem('lang')  || 'fr')
   const [theme, setTheme]     = useState(() => localStorage.getItem('theme') || 'dark')
-  const [legalOpen, setLegalOpen]     = useState(false)
+  const [legalOpen, setLegalOpen]       = useState(false)
+  const [creditsOpen, setCreditsOpen]   = useState(false)
   const [transitioning, setTransitioning] = useState(false)
   const activeSection = useActiveSection(sectionIds)
 
@@ -865,9 +925,13 @@ export default function App() {
           <button className="footer-legal" onClick={() => setLegalOpen(true)}>
             {t(lang, 'legal_link')}
           </button>
+          <button className="footer-legal" onClick={() => setCreditsOpen(true)}>
+            {t(lang, 'credits_link')}
+          </button>
         </div>
       </footer>
       <LegalModal open={legalOpen} onClose={() => setLegalOpen(false)} lang={lang} />
+      <CreditsModal open={creditsOpen} onClose={() => setCreditsOpen(false)} lang={lang} />
     </>
   )
 }
