@@ -4,29 +4,43 @@
 /* ── Variables ── */
 :root,
 [data-theme="dark"] {
-  --bg: #0f1115;
-  --panel: #151922;
-  --text: #e6e6e6;
-  --muted: #8b8fa3;
-  --primary: #00bcd4;
-  --primary-dim: rgba(0, 188, 212, 0.08);
-  --accent: #66ffe6;
-  --btn-text: #0a0d12;
-  --border: rgba(255, 255, 255, 0.06);
-  --shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+  --bg:           #090912;
+  --bg-alt:       #0d0d18;
+  --panel:        #10101e;
+  --panel-raised: #15152a;
+  --text:         #ededf0;
+  --muted:        #8080a0;
+  --primary:      #a855f7;
+  --primary-dim:  rgba(168, 85, 247, 0.07);
+  --primary-glow: rgba(168, 85, 247, 0.22);
+  --accent:       #d946ef;
+  --gold:         #22d3ee;
+  --gold-dim:     rgba(34, 211, 238, 0.10);
+  --btn-text:     #ffffff;
+  --border:       rgba(168, 85, 247, 0.12);
+  --border-soft:  rgba(255, 255, 255, 0.04);
+  --shadow:       0 4px 32px rgba(0, 0, 0, 0.6);
+  --shadow-card:  0 2px 24px rgba(0, 0, 0, 0.45);
 }
 
 [data-theme="light"] {
-  --bg: #f8f9fc;
-  --panel: #ffffff;
-  --text: #1a1d2e;
-  --muted: #6b7084;
-  --primary: #0097a7;
-  --primary-dim: rgba(0, 151, 167, 0.08);
-  --accent: #00838f;
-  --btn-text: #ffffff;
-  --border: rgba(0, 0, 0, 0.08);
-  --shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+  --bg:           #f7f5ff;
+  --bg-alt:       #f0ecff;
+  --panel:        #ffffff;
+  --panel-raised: #faf8ff;
+  --text:         #1a1a2e;
+  --muted:        #6060a0;
+  --primary:      #7c3aed;
+  --primary-dim:  rgba(124, 58, 237, 0.07);
+  --primary-glow: rgba(124, 58, 237, 0.18);
+  --accent:       #a21caf;
+  --gold:         #0891b2;
+  --gold-dim:     rgba(8, 145, 178, 0.10);
+  --btn-text:     #ffffff;
+  --border:       rgba(124, 58, 237, 0.14);
+  --border-soft:  rgba(0, 0, 0, 0.06);
+  --shadow:       0 4px 32px rgba(0, 0, 0, 0.10);
+  --shadow-card:  0 2px 24px rgba(0, 0, 0, 0.07);
 }
 
 /* ── Reset ── */
@@ -48,13 +62,13 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  transition: background 0.3s, color 0.3s;
+  transition: background 0.4s, color 0.4s;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
   font-family: 'Clash Display', sans-serif;
-  line-height: 1.15;
+  line-height: 1.12;
 }
 
 a {
