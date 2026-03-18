@@ -705,7 +705,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  background: linear-gradient(to right, transparent, var(--primary), transparent);
   opacity: 0;
   transition: opacity 0.3s;
 }
@@ -717,8 +717,8 @@
 }
 
 [data-theme="dark"] .school-card:hover {
-  border-color: var(--gold);
-  box-shadow: var(--shadow-card), 0 0 20px var(--gold-dim);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-card), 0 0 24px var(--primary-glow);
 }
 
 .school-card:hover::after {
@@ -1290,4 +1290,45 @@
 
 .credit-link a:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  /* Cache les colonnes de code animées sur mobile */
+  .hsr-bg .code-col {
+    display: none;
+  }
+
+  /* Photo plus petite */
+  .hero-photo-wrapper {
+    width: 200px;
+    height: 200px;
+  }
+
+  .hero-photo {
+    width: 180px;
+    height: 180px;
+  }
+
+  /* Padding général sur les sections */
+  .projects-section,
+  .education-section,
+  .contact-section {
+    padding: 64px 16px;
+  }
+
+  .hero {
+    padding: 90px 16px 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-photo-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+
+  .hero-photo {
+    width: 140px;
+    height: 140px;
+  }
 }
