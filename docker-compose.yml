@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  paolo-portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: paolo-portfolio
+    ports:
+      - "8080:8080"
+    environment:
+      - VITE_CONTACT_EMAIL=paolo.antonini.dev@gmail.com
+      - VITE_APP_ENV=production
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+    labels:
+      - "com.example.description=Paolo Antonini Portfolio"
