@@ -19,6 +19,7 @@
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  contain: strict;
 }
 
 .hsr-bg .code-col {
@@ -29,6 +30,7 @@
   overflow: hidden;
   -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
   mask-image: linear-gradient(to bottom, transparent 0%, black 6%, black 94%, transparent 100%);
+  contain: content;
 }
 
 .hsr-bg .code-col-left  { left: 0; }
@@ -40,10 +42,14 @@
   gap: 0;
   animation: codeScrollDown 40s linear infinite;
   will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 .hsr-bg .code-col-inner--reverse {
   animation: codeScrollUp 46s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .hsr-bg .code-line {
