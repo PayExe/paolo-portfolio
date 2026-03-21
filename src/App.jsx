@@ -824,7 +824,11 @@ function LegalModal({ open, onClose, lang }) {
               <h3>{t(lang, 'legal_ip_title')}</h3>
               <p>{t(lang, 'legal_ip_text')}</p>
             </div>
-          </motion.div>
+            <div className="legal-section">
+              <h3>{t(lang, 'legal_security_title')}</h3>
+              <p>{t(lang, 'legal_security_text')}</p>
+            </div>
+           </motion.div>
         </motion.div>
       )}
     </AnimatePresence>
