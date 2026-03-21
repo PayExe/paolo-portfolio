@@ -5,22 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Portfolio de Paolo Antonini - Etudiant en informatique passionne par le developpement web, la cybersecurite et l'IA." />
     <title>Portfolio | Paolo Antonini</title>
-    <style>
-      html, body {
-        background-color: #090912;
-        color: #ededf0;
-      }
-    </style>
     <script>
       (function() {
         var t = localStorage.getItem('theme') || 'dark';
         document.documentElement.setAttribute('data-theme', t);
+        
+        // Apply theme immediately to avoid flash
         if (t === 'light') {
-          document.body.style.backgroundColor = '#f7f5ff';
-          document.body.style.color = '#1a1a2e';
+          document.documentElement.style.backgroundColor = '#f7f5ff';
+          document.documentElement.style.color = '#1a1a2e';
+        } else {
+          document.documentElement.style.backgroundColor = '#090912';
+          document.documentElement.style.color = '#ededf0';
         }
       })();
     </script>
+    <style>
+      html {
+        background-color: #090912;
+        color: #ededf0;
+      }
+      html[data-theme="light"] {
+        background-color: #f7f5ff;
+        color: #1a1a2e;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
