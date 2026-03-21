@@ -1070,6 +1070,7 @@
   align-items: center;
   justify-content: center;
   padding: 24px;
+  will-change: backdrop-filter;
 }
 
 .legal-modal {
@@ -1391,6 +1392,12 @@ textarea:focus-visible {
     backdrop-filter: blur(10px) saturate(160%);
   }
   
+  /* Disable blur on popups for better mobile performance */
+  .legal-overlay {
+    backdrop-filter: none;
+    background: rgba(0, 0, 0, 0.85);
+  }
+  
   /* Disable will-change on mobile to save memory */
   .hsr-bg .code-col-inner,
   .hsr-bg .code-col-inner--reverse {
@@ -1401,6 +1408,16 @@ textarea:focus-visible {
   /* Optimize motion animations on mobile */
   .motion-div {
     --motion-reduce: 1;
+  }
+}
+
+/* Battery Saver: Reduce animations when battery is low */
+@media (prefers-color-scheme: light) and (min-width: 769px) {
+  /* On battery/laptop, reduce backdrop blur on popups */
+  @supports (backdrop-filter: blur(0px)) {
+    .legal-overlay {
+      backdrop-filter: blur(4px);
+    }
   }
 }
 
