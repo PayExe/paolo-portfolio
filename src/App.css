@@ -1332,3 +1332,21 @@
     height: 140px;
   }
 }
+
+/* Accessibility: Focus styles for keyboard navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Form error state */
+.form-error {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: #ef4444;
+  font-weight: 600;
+  margin-left: 4px;
+}

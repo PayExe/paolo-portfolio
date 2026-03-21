@@ -181,14 +181,14 @@ function HsrBg() {
       <div className="code-col code-col-left">
         <div className="code-col-inner">
           {[...CODE_LEFT, ...CODE_LEFT].map((line, i) => (
-            <span key={i} className="code-line">{line}</span>
+            <span key={`code-left-${i}`} className="code-line">{line}</span>
           ))}
         </div>
       </div>
       <div className="code-col code-col-right">
         <div className="code-col-inner code-col-inner--reverse">
           {[...CODE_RIGHT, ...CODE_RIGHT].map((line, i) => (
-            <span key={i} className="code-line">{line}</span>
+            <span key={`code-right-${i}`} className="code-line">{line}</span>
           ))}
         </div>
       </div>
@@ -352,7 +352,7 @@ function Hero({ lang }) {
             <path d="M272 272 L277 267 L272 262 L267 267 Z" stroke="currentColor" strokeWidth="1" fill="none"/>
             <line x1="124" y1="8" x2="156" y2="8" stroke="currentColor" strokeWidth="1.2" opacity="0.5"/>
             <path d="M140 4 L144 8 L140 12 L136 8 Z" stroke="currentColor" strokeWidth="0.9" fill="none" opacity="0.6"/>
-            <line x1="124" y1="272" x2="156" y2="272" stroke="currentColor" strokeWidth="1.2" opacity="0.5"/>
+            <line x1="124" y1="272" x2="  156" y2="272" stroke="currentColor" strokeWidth="1.2" opacity="0.5"/>
             <path d="M140 268 L144 272 L140 276 L136 272 Z" stroke="currentColor" strokeWidth="0.9" fill="none" opacity="0.6"/>
             <line x1="8" y1="124" x2="8" y2="156" stroke="currentColor" strokeWidth="1.2" opacity="0.5"/>
             <path d="M4 140 L8 136 L12 140 L8 144 Z" stroke="currentColor" strokeWidth="0.9" fill="none" opacity="0.6"/>
@@ -376,7 +376,7 @@ function Hero({ lang }) {
             <line x1="272" y1="234" x2="267" y2="234" stroke="currentColor" strokeWidth="0.8" opacity="0.25"/>
           </svg>
 
-          <img src="/images/pay.jpg" alt="Paolo Antonini" className="hero-photo" />
+          <img src="/images/P.png" alt="Paolo Antonini" className="hero-photo" />
         </motion.div>
       </div>
     </section>
@@ -497,7 +497,7 @@ function Projects({ lang }) {
               </h3>
               <p>{p.desc[lang]}</p>
               <div className="tag-row">
-                {p.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+                {p.tags.map((tag, idx) => <span key={`${p.id}-tag-${idx}`} className="tag">{tag}</span>)}
               </div>
               <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
                 {t(lang, 'view_project')}
@@ -538,7 +538,7 @@ function Projects({ lang }) {
             <h4>{p.title}</h4>
             <p>{p.desc[lang]}</p>
             <div className="tag-row">
-              {p.tags.map(tag => <span key={tag} className="tag">{tag}</span>)}
+              {p.tags.map((tag, idx) => <span key={`school-${p.id}-tag-${idx}`} className="tag">{tag}</span>)}
             </div>
             <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
               {t(lang, 'view_repo')}
@@ -618,16 +618,44 @@ function Education({ lang }) {
   )
 }
 
+// Email validation
+const validateEmail = (email) => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return emailRegex.test(email) && email.length <= 254
+}
+
+// Sanitize input to prevent email header injection
+const sanitizeForEmail = (input) => {
+  return input
+    .replace(/[\r\n]/g, ' ')  // Remove line breaks
+    .replace(/[\x00-\x1F]/g, '') // Remove control characters
+    .trim()
+}
+
 function Contact({ lang }) {
+  const [emailError, setEmailError] = useState(false)
+  
   const handleSubmit = (e) => {
     e.preventDefault()
     const form = e.target
-    const name = form.elements['name'].value
-    const email = form.elements['email'].value
-    const subject = form.elements['subject'].value
-    const message = form.elements['message'].value
-    const body = `${lang === 'fr' ? 'Nom' : 'Name'}: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`
-    window.location.href = `mailto:paolo.antonini.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`
+    const name = sanitizeForEmail(form.elements['name'].value).substring(0, 100)
+    const email = sanitizeForEmail(form.elements['email'].value).substring(0, 254)
+    const subject = sanitizeForEmail(form.elements['subject'].value).substring(0, 100)
+    const message = sanitizeForEmail(form.elements['message'].value).substring(0, 5000)
+    
+    // Validate email
+    if (!validateEmail(email)) {
+      setEmailError(true)
+      setTimeout(() => setEmailError(false), 3000)
+      return
+    }
+    
+    // Construct email body with proper encoding
+    const body = `${lang === 'fr' ? 'Nom' : 'Name'}: ${name}\nEmail: ${email}\n\n${message}`
+    const contactEmail = typeof __VITE_CONTACT_EMAIL__ !== 'undefined' ? __VITE_CONTACT_EMAIL__ : 'paolo.antonini.dev@gmail.com'
+    const mailtoLink = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+    
+    window.location.href = mailtoLink
   }
 
   return (
@@ -655,10 +683,21 @@ function Contact({ lang }) {
             <label htmlFor="name">{t(lang, 'form_name')}</label>
             <input type="text" id="name" name="name" placeholder={t(lang, 'form_name_placeholder')} required />
           </div>
-          <div className="form-group">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" name="email" placeholder={t(lang, 'form_email_placeholder')} required />
-          </div>
+           <div className="form-group">
+             <label htmlFor="email">
+               Email
+               {emailError && <span className="form-error">{lang === 'fr' ? 'Email invalide' : 'Invalid email'}</span>}
+             </label>
+             <input 
+               type="email" 
+               id="email" 
+               name="email" 
+               placeholder={t(lang, 'form_email_placeholder')} 
+               required 
+               aria-invalid={emailError}
+               aria-describedby={emailError ? 'email-error' : undefined}
+             />
+           </div>
           <div className="form-group">
             <label htmlFor="subject">{t(lang, 'form_subject')}</label>
             <input type="text" id="subject" name="subject" placeholder={t(lang, 'form_subject_placeholder')} required />
@@ -733,9 +772,14 @@ function LegalModal({ open, onClose, lang }) {
   const overlayRef = useRef()
 
   useEffect(() => {
-    if (open) document.body.style.overflow = 'hidden'
-    else document.body.style.overflow = ''
-    return () => { document.body.style.overflow = '' }
+    if (!open) return
+
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    
+    return () => {
+      document.body.style.overflow = originalOverflow
+    }
   }, [open])
 
   if (!open) return null
@@ -791,9 +835,14 @@ function CreditsModal({ open, onClose, lang }) {
   const overlayRef = useRef()
 
   useEffect(() => {
-    if (open) document.body.style.overflow = 'hidden'
-    else document.body.style.overflow = ''
-    return () => { document.body.style.overflow = '' }
+    if (!open) return
+
+    const originalOverflow = document.body.style.overflow
+    document.body.style.overflow = 'hidden'
+    
+    return () => {
+      document.body.style.overflow = originalOverflow
+    }
   }, [open])
 
   if (!open) return null

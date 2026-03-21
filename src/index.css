@@ -27,7 +27,7 @@
   --panel:        #ffffff;
   --panel-raised: #faf8ff;
   --text:         #1a1a2e;
-  --muted:        #6060a0;
+  --muted:        #4a4a8a;  /* Fixed: darker for better contrast (was #6060a0) */
   --primary:      #7c3aed;
   --primary-dim:  rgba(124, 58, 237, 0.07);
   --primary-glow: rgba(124, 58, 237, 0.18);
