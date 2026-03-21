@@ -1374,3 +1374,44 @@ textarea:focus-visible {
     padding: 10px;
   }
 }
+
+/* Mobile Performance Optimizations */
+@media (max-width: 768px) {
+  /* Disable expensive background animation on mobile */
+  .hsr-bg .code-col-inner {
+    animation: none !important;
+  }
+  
+  .hsr-bg .code-col-inner--reverse {
+    animation: none !important;
+  }
+  
+  /* Reduce backdrop filter blur for better performance */
+  .navbar {
+    backdrop-filter: blur(10px) saturate(160%);
+  }
+  
+  /* Disable will-change on mobile to save memory */
+  .hsr-bg .code-col-inner,
+  .hsr-bg .code-col-inner--reverse {
+    will-change: auto;
+    backface-visibility: visible;
+  }
+  
+  /* Optimize motion animations on mobile */
+  .motion-div {
+    --motion-reduce: 1;
+  }
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hsr-bg .code-col-inner,
+  .hsr-bg .code-col-inner--reverse {
+    animation: none !important;
+  }
+  
+  .navbar {
+    backdrop-filter: blur(10px) saturate(160%);
+  }
+}
