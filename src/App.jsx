@@ -659,8 +659,8 @@ function Contact({ lang }) {
     setSubmitAttempted(true)
     window.location.href = mailtoLink
     
-    // Reset after 5 seconds
-    setTimeout(() => setSubmitAttempted(false), 5000)
+    // Reset after 15 seconds
+    setTimeout(() => setSubmitAttempted(false), 15000)
   }
 
   return (
