@@ -6,6 +6,9 @@ export default defineConfig({
   define: {
     __VITE_CONTACT_EMAIL__: JSON.stringify(process.env.VITE_CONTACT_EMAIL || 'paolo.antonini.dev@gmail.com'),
   },
+  preview: {
+    allowHosts: ['paolo-antonini.dev', 'www.paolo-antonini.dev'],
+  },
   build: {
     rollupOptions: {
       output: {
