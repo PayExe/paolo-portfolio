@@ -300,7 +300,7 @@ function Navbar({ lang, setLang, theme, setTheme, activeSection, onNavClick }) {
               </svg>
             )}
           </button>
-          <button className={`burger ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+          <button className={`burger ${menuOpen ? 'active' : ''}`} onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu" aria-expanded={menuOpen}>
             <span /><span /><span />
           </button>
         </div>
@@ -628,7 +628,8 @@ const validateEmail = (email) => {
 const sanitizeForEmail = (input) => {
   return input
     .replace(/[\r\n]/g, ' ')  // Remove line breaks
-    .replace(/[\x00-\x1F]/g, '') // Remove control characters
+    // eslint-disable-next-line no-control-regex
+    .replace(/[\x00-\x1F]/gu, '') // Remove control characters
     .trim()
 }
 
@@ -691,7 +692,7 @@ function Contact({ lang }) {
            <div className="form-group">
              <label htmlFor="email">
                Email
-               {emailError && <span className="form-error">{lang === 'fr' ? 'Email invalide' : 'Invalid email'}</span>}
+               {emailError && <span className="form-error" id="email-error">{lang === 'fr' ? 'Email invalide' : 'Invalid email'}</span>}
              </label>
              <input 
                type="email" 

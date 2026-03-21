@@ -13,10 +13,10 @@ services:
       - VITE_APP_ENV=production
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8080/"]
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/"]
       interval: 30s
-      timeout: 3s
+      timeout: 10s
       retries: 3
-      start_period: 5s
+      start_period: 15s
     labels:
       - "com.example.description=Paolo Antonini Portfolio"
