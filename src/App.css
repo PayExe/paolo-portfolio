@@ -40,14 +40,14 @@
   display: flex;
   flex-direction: column;
   gap: 0;
-  animation: codeScrollDown 40s linear infinite;
+  animation: codeScrollDown 60s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
 .hsr-bg .code-col-inner--reverse {
-  animation: codeScrollUp 46s linear infinite;
+  animation: codeScrollUp 70s linear infinite;
   will-change: transform;
   backface-visibility: hidden;
 }
