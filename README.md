@@ -1,5 +1,7 @@
 # Portfolio – Paolo Antonini
 
+## 🇫🇷 Français
+
 Bienvenue sur mon site personnel !
 
 Ce portfolio présente mon parcours, mes projets, et un peu de ma personnalité. J'ai voulu un site simple, moderne, animé et agréable à parcourir, que ce soit sur mobile ou ordinateur.
@@ -13,6 +15,23 @@ Le site est développé avec React, Vite et Framer Motion pour les animations, m
 
 Tout est pensé pour être rapide, accessible et vivant.
 
+## 🇬🇧 English
+
+Welcome to my personal website!
+
+This portfolio showcases my background, projects, and a bit of my personality. I wanted to create a simple, modern, animated, and enjoyable experience to browse, whether on mobile or desktop.
+
+The site is built with React, Vite, and Framer Motion for animations, but the content is what really matters:
+
+- A homepage to introduce myself
+- A projects section to discover what I've created
+- A contact space to connect easily
+- Dark & light mode and smooth navigation
+
+Everything is designed to be fast, accessible, and engaging.
+
+---
+
 **Paolo Antonini**  
-Étudiant en informatique & passionné de dev  
-Contact : paolo.antonini.dev@gmail.com
+Computer Science Student & Passionate Developer  
+Contact: paolo.antonini.dev@gmail.com
