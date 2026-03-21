@@ -1350,3 +1350,21 @@ textarea:focus-visible {
   font-weight: 600;
   margin-left: 4px;
 }
+
+.form-notice {
+  margin-top: 12px;
+  padding: 12px;
+  background-color: rgba(59, 130, 246, 0.1);
+  border-left: 3px solid #3b82f6;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .form-notice {
+    font-size: 0.8125rem;
+    padding: 10px;
+  }
+}

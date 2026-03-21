@@ -634,6 +634,7 @@ const sanitizeForEmail = (input) => {
 
 function Contact({ lang }) {
   const [emailError, setEmailError] = useState(false)
+  const [submitAttempted, setSubmitAttempted] = useState(false)
   
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -655,7 +656,11 @@ function Contact({ lang }) {
     const contactEmail = typeof __VITE_CONTACT_EMAIL__ !== 'undefined' ? __VITE_CONTACT_EMAIL__ : 'paolo.antonini.dev@gmail.com'
     const mailtoLink = `mailto:${contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
     
+    setSubmitAttempted(true)
     window.location.href = mailtoLink
+    
+    // Reset after 5 seconds
+    setTimeout(() => setSubmitAttempted(false), 5000)
   }
 
   return (
@@ -702,12 +707,19 @@ function Contact({ lang }) {
             <label htmlFor="subject">{t(lang, 'form_subject')}</label>
             <input type="text" id="subject" name="subject" placeholder={t(lang, 'form_subject_placeholder')} required />
           </div>
-          <div className="form-group">
-            <label htmlFor="message">Message</label>
-            <textarea id="message" name="message" rows="5" placeholder={t(lang, 'form_message_placeholder')} required />
-          </div>
-          <button type="submit" className="btn-primary btn-full">{t(lang, 'form_send')}</button>
-        </motion.form>
+           <div className="form-group">
+             <label htmlFor="message">Message</label>
+             <textarea id="message" name="message" rows="5" placeholder={t(lang, 'form_message_placeholder')} required />
+           </div>
+           <button type="submit" className="btn-primary btn-full">{t(lang, 'form_send')}</button>
+           {submitAttempted && (
+             <div className="form-notice">
+               {lang === 'fr' 
+                 ? '📧 Votre client email va s\'ouvrir (Outlook, Gmail, etc.). Si rien ne se passe, voici l\'email : paolo.antonini.dev@gmail.com' 
+                 : '📧 Your email client will open (Outlook, Gmail, etc.). If nothing happens, here\'s the email: paolo.antonini.dev@gmail.com'}
+             </div>
+           )}
+         </motion.form>
 
         <motion.div
           className="contact-info"
