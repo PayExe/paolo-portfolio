@@ -108,7 +108,7 @@
 }
 
 .brand {
-  font-family: 'Clash Display', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 1.45rem;
   font-weight: 700;
   letter-spacing: -0.5px;
@@ -604,7 +604,7 @@
   display: inline-block;
   font-size: 0.65rem;
   font-weight: 700;
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Inter', sans-serif;
   padding: 3px 9px;
   
   background: var(--gold-dim);
@@ -1004,7 +1004,7 @@
 }
 
 .footer-brand {
-  font-family: 'Clash Display', sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--muted);
