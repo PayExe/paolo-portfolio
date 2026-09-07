@@ -2,41 +2,41 @@
 
 :root,
 [data-theme="dark"] {
-  --bg:           #090912;
-  --bg-alt:       #0d0d18;
-  --panel:        #10101e;
-  --panel-raised: #15152a;
-  --text:         #ededf0;
-  --muted:        #8080a0;
-  --primary:      #a855f7;
-  --primary-dim:  rgba(168, 85, 247, 0.07);
-  --primary-glow: rgba(168, 85, 247, 0.22);
-  --accent:       #d946ef;
-  --gold:         #22d3ee;
-  --gold-dim:     rgba(34, 211, 238, 0.10);
-  --btn-text:     #ffffff;
-  --border:       rgba(168, 85, 247, 0.12);
-  --border-soft:  rgba(255, 255, 255, 0.04);
+  --bg:           #0a0a0a;
+  --bg-alt:       #111111;
+  --panel:        #1a1a1a;
+  --panel-raised: #232323;
+  --text:         #f5f5f5;
+  --muted:        #8a8a8a;
+  --primary:      #ffffff;
+  --primary-dim:  rgba(255, 255, 255, 0.07);
+  --primary-glow: rgba(255, 255, 255, 0.20);
+  --accent:       #d9d9d9;
+  --gold:         #c0c0c0;
+  --gold-dim:     rgba(192, 192, 192, 0.10);
+  --btn-text:     #0a0a0a;
+  --border:       rgba(255, 255, 255, 0.14);
+  --border-soft:  rgba(255, 255, 255, 0.06);
   --shadow:       0 4px 32px rgba(0, 0, 0, 0.6);
   --shadow-card:  0 2px 24px rgba(0, 0, 0, 0.45);
 }
 
 [data-theme="light"] {
-  --bg:           #f7f5ff;
-  --bg-alt:       #f0ecff;
+  --bg:           #fafafa;
+  --bg-alt:       #f1f1f1;
   --panel:        #ffffff;
-  --panel-raised: #faf8ff;
-  --text:         #1a1a2e;
-  --muted:        #4a4a8a;  /* Fixed: darker for better contrast (was #6060a0) */
-  --primary:      #7c3aed;
-  --primary-dim:  rgba(124, 58, 237, 0.07);
-  --primary-glow: rgba(124, 58, 237, 0.18);
-  --accent:       #a21caf;
-  --gold:         #0891b2;
-  --gold-dim:     rgba(8, 145, 178, 0.10);
+  --panel-raised: #f6f6f6;
+  --text:         #141414;
+  --muted:        #767676;
+  --primary:      #141414;
+  --primary-dim:  rgba(20, 20, 20, 0.07);
+  --primary-glow: rgba(20, 20, 20, 0.16);
+  --accent:       #4a4a4a;
+  --gold:         #808080;
+  --gold-dim:     rgba(128, 128, 128, 0.10);
   --btn-text:     #ffffff;
-  --border:       rgba(124, 58, 237, 0.14);
-  --border-soft:  rgba(0, 0, 0, 0.06);
+  --border:       rgba(0, 0, 0, 0.14);
+  --border-soft:  rgba(0, 0, 0, 0.08);
   --shadow:       0 4px 32px rgba(0, 0, 0, 0.10);
   --shadow-card:  0 2px 24px rgba(0, 0, 0, 0.07);
 }
