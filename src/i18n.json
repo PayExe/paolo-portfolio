@@ -7,6 +7,9 @@
     "hero_btn_projects": "Voir mes projets",
     "hero_btn_contact": "Me contacter",
 
+    "skills_label": "Stack",
+    "skills_title": "Mes compétences",
+
     "projects_label": "Portfolio",
     "projects_title": "Mes projets",
     "view_project": "Voir le projet",
@@ -58,6 +61,9 @@
     "hero_desc": "Passionate about computer science, I enjoy imagining and developing a variety of projects. Each one is an opportunity for me to learn, experiment, and improve my skills.",
     "hero_btn_projects": "See my projects",
     "hero_btn_contact": "Contact me",
+
+    "skills_label": "Stack",
+    "skills_title": "My skills",
 
     "projects_label": "Portfolio",
     "projects_title": "My projects",

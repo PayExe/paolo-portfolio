@@ -418,6 +418,7 @@
 }
 
 .projects-section,
+.skills-section,
 .education-section,
 .contact-section {
   position: relative;
@@ -458,6 +459,60 @@
   font-weight: 700;
   letter-spacing: -1.2px;
   margin-bottom: 56px;
+  color: var(--text);
+}
+
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 18px 26px;
+}
+
+.tech-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 10px;
+  width: 104px;
+  border-radius: 10px;
+  transition: transform 0.25s, background 0.25s;
+  cursor: default;
+}
+
+.tech-item:hover {
+  transform: translateY(-3px);
+  background: var(--primary-dim);
+}
+
+.tech-item img {
+  width: 30px;
+  height: 30px;
+  filter: grayscale(1) brightness(0);
+  opacity: 0.85;
+  transition: filter 0.25s, transform 0.25s, opacity 0.25s;
+}
+
+[data-theme="dark"] .tech-item img {
+  filter: grayscale(1) brightness(0) invert(1);
+}
+
+.tech-item:hover img {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.tech-item span {
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
+  transition: color 0.25s;
+}
+
+.tech-item:hover span {
   color: var(--text);
 }
 
@@ -1292,9 +1347,15 @@
 
   /* Padding général sur les sections */
   .projects-section,
+  .skills-section,
   .education-section,
   .contact-section {
     padding: 64px 16px;
+  }
+
+  .tech-item {
+    width: 88px;
+    padding: 12px 6px;
   }
 
   .hero {

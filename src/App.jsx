@@ -135,6 +135,7 @@ const CODE_RIGHT = [
   "}",
   "const sectionIds = [",
   "  'about',",
+  "  'skills',",
   "  'projects',",
   "  'education',",
   "  'contact',",
@@ -249,10 +250,11 @@ function Navbar({ lang, setLang, theme, setTheme, activeSection, onNavClick }) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const links = [
-    { href: '#about',     id: 'about',     label: lang === 'fr' ? 'A propos'  : 'About'     },
-    { href: '#projects',  id: 'projects',  label: lang === 'fr' ? 'Projets'   : 'Projects'  },
-    { href: '#education', id: 'education', label: lang === 'fr' ? 'Formation' : 'Education' },
-    { href: '#contact',   id: 'contact',   label: 'Contact'                                  },
+    { href: '#about',     id: 'about',     label: lang === 'fr' ? 'A propos'    : 'About'     },
+    { href: '#skills',    id: 'skills',    label: lang === 'fr' ? 'Compétences' : 'Skills'    },
+    { href: '#projects',  id: 'projects',  label: lang === 'fr' ? 'Projets'     : 'Projects'  },
+    { href: '#education', id: 'education', label: lang === 'fr' ? 'Formation'   : 'Education' },
+    { href: '#contact',   id: 'contact',   label: 'Contact'                                   },
   ]
 
   const handleClick = (e, href) => {
@@ -379,6 +381,78 @@ function Hero({ lang }) {
           <img src="/images/P.png" alt="Paolo Antonini" className="hero-photo" />
         </motion.div>
       </div>
+    </section>
+  )
+}
+
+const techList = [
+  { name: 'JavaScript', icon: 'javascript' },
+  { name: 'TypeScript', icon: 'typescript' },
+  { name: 'HTML5', icon: 'html5' },
+  { name: 'CSS3', icon: 'css' },
+  { name: 'React', icon: 'react' },
+  { name: 'Node.js', icon: 'nodedotjs' },
+  { name: 'Java', icon: 'openjdk' },
+  { name: 'Python', icon: 'python' },
+  { name: 'Go', icon: 'go' },
+  { name: 'C', icon: 'c' },
+  { name: 'C++', icon: 'cplusplus' },
+  { name: 'PostgreSQL', icon: 'postgresql' },
+  { name: 'Drizzle', icon: 'drizzle' },
+  { name: 'Docker', icon: 'docker' },
+  { name: 'Linux', icon: 'linux' },
+  { name: 'Bun', icon: 'bun' },
+  { name: 'Turborepo', icon: 'turborepo' },
+  { name: 'Expo', icon: 'expo' },
+  { name: 'Electron', icon: 'electron' },
+  { name: 'Grafana', icon: 'grafana' },
+  { name: 'Prometheus', icon: 'prometheus' },
+  { name: 'Git', icon: 'git' },
+  { name: 'GitHub', icon: 'github' },
+]
+
+function Skills({ lang }) {
+  return (
+    <section className="skills-section" id="skills">
+      <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <span className="section-label">{t(lang, 'skills_label')}</span>
+        <h2 className="section-title">{t(lang, 'skills_title')}</h2>
+      </motion.div>
+
+      <motion.div
+        className="tech-grid"
+        initial={{ opacity: 0, y: 16 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      >
+        {techList.map((tech, i) => (
+          <motion.div
+            className="tech-item"
+            key={tech.name}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.35, delay: i * 0.03, ease: [0.22, 1, 0.36, 1] }}
+            title={tech.name}
+          >
+            <img
+              src={`https://cdn.simpleicons.org/${tech.icon}`}
+              alt={tech.name}
+              width="30"
+              height="30"
+              loading="lazy"
+              onError={(e) => { e.currentTarget.style.display = 'none' }}
+            />
+            <span>{tech.name}</span>
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
   )
 }
@@ -912,7 +986,7 @@ function CreditsModal({ open, onClose, lang }) {
 
 
 
-const sectionIds = ['about', 'projects', 'education', 'contact']
+const sectionIds = ['about', 'skills', 'projects', 'education', 'contact']
 
 export default function App() {
   const [lang, setLang]       = useState(() => localStorage.getItem('lang')  || 'fr')
@@ -954,6 +1028,8 @@ export default function App() {
       />
       <main>
         <Hero lang={lang} />
+        <SectionDivider />
+        <Skills lang={lang} />
         <SectionDivider />
         <Projects lang={lang} />
         <SectionDivider />
