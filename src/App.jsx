@@ -388,25 +388,23 @@ function Hero({ lang }) {
 const techList = [
   { name: 'JavaScript', icon: 'javascript' },
   { name: 'TypeScript', icon: 'typescript' },
-  { name: 'HTML5', icon: 'html5' },
-  { name: 'CSS3', icon: 'css' },
-  { name: 'React', icon: 'react' },
-  { name: 'Node.js', icon: 'nodedotjs' },
-  { name: 'Java', icon: 'openjdk' },
   { name: 'Python', icon: 'python' },
+  { name: 'Java', icon: 'openjdk' },
   { name: 'Go', icon: 'go' },
   { name: 'C', icon: 'c' },
   { name: 'C++', icon: 'cplusplus' },
-  { name: 'PostgreSQL', icon: 'postgresql' },
-  { name: 'Drizzle', icon: 'drizzle' },
-  { name: 'Docker', icon: 'docker' },
-  { name: 'Linux', icon: 'linux' },
-  { name: 'Bun', icon: 'bun' },
-  { name: 'Turborepo', icon: 'turborepo' },
+  { name: 'HTML5', icon: 'html5' },
+  { name: 'CSS3', icon: 'css' },
+  { name: 'React', icon: 'react' },
   { name: 'Expo', icon: 'expo' },
   { name: 'Electron', icon: 'electron' },
-  { name: 'Grafana', icon: 'grafana' },
-  { name: 'Prometheus', icon: 'prometheus' },
+  { name: 'Node.js', icon: 'nodedotjs' },
+  { name: 'Bun', icon: 'bun' },
+  { name: 'PostgreSQL', icon: 'postgresql' },
+  { name: 'Drizzle', icon: 'drizzle' },
+  { name: 'Godot', icon: 'godotengine' },
+  { name: 'Docker', icon: 'docker' },
+  { name: 'Linux', icon: 'linux' },
   { name: 'Git', icon: 'git' },
   { name: 'GitHub', icon: 'github' },
 ]
@@ -487,7 +485,7 @@ const personalProjects = [
     title: 'NS Website',
     desc: {
       fr: "Site que j'ai créé pour mon meilleur ami, artiste du label NS!! Records. Fait à l'origine comme cadeau d'anniversaire, le but c'était de mettre en avant son univers musical avec un design dark, des animations de terminal et une DA rétro choisie par l'artiste lui-même.",
-      en: "Website I created for my best friend, artist of the NS!! Records label. Originally a birthday gift — dark design, terminal animations and retro art direction chosen by the artist himself.",
+      en: "Website I created for my best friend, artist of the NS!! Records label. Originally a birthday gift: dark design, terminal animations and retro art direction chosen by the artist himself.",
     },
     tags: ['Web', 'HTML/CSS', 'JS'],
     link: 'https://github.com/PayExe/NSWEBSITE',
@@ -503,29 +501,6 @@ const personalProjects = [
     tags: ['Discord.js', 'Node.js', 'Steam API'],
     link: 'https://github.com/PayExe/Steamy',
     inProgress: true,
-  },
-]
-
-const schoolProjects = [
-  {
-    id: 'power4',
-    title: 'Power 4',
-    desc: {
-      fr: "Puissance 4 jouable sur une interface web, avec un backend en Go. Projet réalisé en première année à Ynov.",
-      en: 'Connect 4 playable on a web interface, with a Go backend. First year project at Ynov.',
-    },
-    tags: ['Go', 'Web'],
-    link: 'https://ytrack.learn.ynov.com/git/gvincent/Power4.git',
-  },
-  {
-    id: 'gigamania',
-    title: 'Giga Mania',
-    desc: {
-      fr: "Application e-commerce de jeux vidéo en Java orienté objet et JavaFX avec gestion de panier et base de données. Projet de groupe en première année.",
-      en: 'Video game e-commerce application in OOP Java and JavaFX with cart management and database. Group project in first year.',
-    },
-    tags: ['Java', 'JavaFX'],
-    link: 'https://github.com/SkyVence/poo-game-shop',
   },
 ]
 
@@ -580,46 +555,6 @@ function Projects({ lang }) {
           </motion.div>
         ))}
       </div>
-
-      <motion.div
-        className="school-projects-header"
-        initial={{ opacity: 0, y: 16 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.45 }}
-      >
-        <h3 className="school-projects-title">
-          {lang === 'fr' ? 'Projets scolaires' : 'School Projects'}
-          <span className="badge-school">Ynov</span>
-        </h3>
-        <p className="school-projects-desc">
-          {lang === 'fr'
-            ? "Projets réalisés dans le cadre de ma première année à Ynov Campus Bordeaux."
-            : 'Projects completed during my first year at Ynov Campus Bordeaux.'}
-        </p>
-      </motion.div>
-
-      <div className="school-projects-grid">
-        {schoolProjects.map((p, i) => (
-          <motion.div
-            className="school-card"
-            key={p.id}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.45, delay: i * 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <h4>{p.title}</h4>
-            <p>{p.desc[lang]}</p>
-            <div className="tag-row">
-              {p.tags.map((tag, idx) => <span key={`school-${p.id}-tag-${idx}`} className="tag">{tag}</span>)}
-            </div>
-            <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
-              {t(lang, 'view_repo')}
-            </a>
-          </motion.div>
-        ))}
-      </div>
     </section>
   )
 }
@@ -628,11 +563,11 @@ function Education({ lang }) {
   const items = [
     {
       school: 'Ynov Campus Bordeaux',
-      period: { fr: '2025 – aujourd\'hui', en: '2025 – present' },
-      degree: { fr: "Bachelor Informatique — 1ère année", en: "Bachelor's Computer Science — 1st year" },
+      period: { fr: '2025 - aujourd\'hui', en: '2025 - present' },
+      degree: { fr: "Bachelor Informatique, 1ère année", en: "Bachelor's Computer Science, 1st year" },
       desc: {
-        fr: "Le vrai début de l'aventure. Développement web, bases de données, programmation orientée objet, réseaux... C'est ici que je structure tout ce que j'ai appris en autodidacte et que je découvre de nouveaux domaines comme la cybersécurité et l'IA.",
-        en: "The real start of the adventure. Web development, databases, object-oriented programming, networking... This is where I structure everything I self-taught and discover new fields like cybersecurity and AI.",
+        fr: "Formation en informatique axée sur le développement, les réseaux et la cybersécurité. Acquisition de compétences techniques et professionnelles en développement web, administration système et travail en équipe sur des projets concrets.",
+        en: "Computer science education focused on development, networking and cybersecurity. Building technical and professional skills in web development, system administration and teamwork on real-world projects.",
       },
       coursework: {
         fr: 'Web, Base de données, POO, Réseaux, Software Engineering',
@@ -641,11 +576,11 @@ function Education({ lang }) {
     },
     {
       school: { fr: 'Lycée', en: 'High School' },
-      period: { fr: '2022 – 2025', en: '2022 – 2025' },
-      degree: { fr: "Baccalauréat — Spécialités NSI & Mathématiques", en: "Baccalauréat — NSI & Mathematics" },
+      period: { fr: '2022 - 2025', en: '2022 - 2025' },
+      degree: { fr: "Baccalauréat, Spécialités NSI & Mathématiques", en: "Baccalauréat, NSI & Mathematics" },
       desc: {
-        fr: "Le début d'une passion. C'est au lycée que j'ai découvert la programmation avec Python en NSI et que j'ai commencé à apprendre le développement web en autodidacte à côté. C'est là que j'ai su que je voulais en faire mon métier.",
-        en: "Where it all started. High school is where I discovered programming with Python in NSI and started learning web development on my own. That's when I knew I wanted to make it my career.",
+        fr: "Obtention du Baccalauréat général avec spécialités NSI (Numérique et Sciences Informatiques) et Mathématiques. Première approche de la programmation et des fondamentaux de l'informatique.",
+        en: "General Baccalauréat with NSI (Computer Science) and Mathematics specialities. First exposure to programming and computer science fundamentals.",
       },
       coursework: {
         fr: 'NSI (Python, Algo, Réseaux), Mathématiques',

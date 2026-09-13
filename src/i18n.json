@@ -13,7 +13,6 @@
     "projects_label": "Portfolio",
     "projects_title": "Mes projets",
     "view_project": "Voir le projet",
-    "view_repo": "Voir le repo",
 
     "education_label": "Parcours",
     "education_title": "Formation",
@@ -35,7 +34,7 @@
     "legal_link": "Mentions légales",
     "legal_title": "Mentions légales",
     "legal_editor_title": "Éditeur du site",
-    "legal_editor_text": "Paolo Antonini – Étudiant en informatique. Email : paolo.antonini.dev@gmail.com",
+    "legal_editor_text": "Paolo Antonini. Étudiant en informatique. Email : paolo.antonini.dev@gmail.com",
      "legal_host_title": "Hébergement",
      "legal_host_text": "Ce site est hébergé sur un VPS (serveur privé virtuel) sécurisé avec Docker, nginx et certificats SSL/TLS.",
     "legal_data_title": "Données personnelles",
@@ -43,7 +42,7 @@
     "legal_ip_title": "Propriété intellectuelle",
     "legal_ip_text": "L'ensemble du contenu de ce site (textes, images, code) est la propriété de Paolo Antonini, sauf mention contraire. Toute reproduction sans autorisation est interdite.",
     "legal_security_title": "Sécurité & Confidentialité",
-    "legal_security_text": "Ce site implémente les meilleures pratiques de sécurité : HTTPS obligatoire, Content Security Policy (CSP), en-têtes de sécurité (X-Frame-Options, X-Content-Type-Options), validation stricte des données du formulaire de contact, et aucune collecte de données personnelles. Le formulaire utilise uniquement votre client email local – aucun stockage serveur.",
+    "legal_security_text": "Ce site implémente les meilleures pratiques de sécurité : HTTPS obligatoire, Content Security Policy (CSP), en-têtes de sécurité (X-Frame-Options, X-Content-Type-Options), validation stricte des données du formulaire de contact, et aucune collecte de données personnelles. Le formulaire utilise uniquement votre client email local : aucun stockage serveur.",
 
     "credits_link": "Fun fact",
     "credits_title": "Fun fact & Crédits",
@@ -68,7 +67,6 @@
     "projects_label": "Portfolio",
     "projects_title": "My projects",
     "view_project": "View project",
-    "view_repo": "View repo",
 
     "education_label": "Background",
     "education_title": "Education",
@@ -90,7 +88,7 @@
     "legal_link": "Legal notice",
     "legal_title": "Legal notice",
     "legal_editor_title": "Site editor",
-    "legal_editor_text": "Paolo Antonini – Computer science student. Email: paolo.antonini.dev@gmail.com",
+    "legal_editor_text": "Paolo Antonini. Computer science student. Email: paolo.antonini.dev@gmail.com",
      "legal_host_title": "Hosting",
      "legal_host_text": "This site is hosted on a secure VPS (Virtual Private Server) with Docker, nginx, and SSL/TLS certificates.",
     "legal_data_title": "Personal data",
@@ -98,7 +96,7 @@
      "legal_ip_title": "Intellectual property",
      "legal_ip_text": "All content on this site (text, images, code) is the property of Paolo Antonini, unless stated otherwise. Any reproduction without permission is prohibited.",
      "legal_security_title": "Security & Privacy",
-     "legal_security_text": "This site implements security best practices: mandatory HTTPS, Content Security Policy (CSP), security headers (X-Frame-Options, X-Content-Type-Options), strict contact form data validation, and zero personal data collection. The form simply opens your local email client – no server-side storage.",
+     "legal_security_text": "This site implements security best practices: mandatory HTTPS, Content Security Policy (CSP), security headers (X-Frame-Options, X-Content-Type-Options), strict contact form data validation, and zero personal data collection. The form simply opens your local email client : no server-side storage.",
 
      "credits_link": "Fun fact",
     "credits_title": "Fun fact & Credits",
