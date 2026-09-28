@@ -96,16 +96,17 @@ const CODE_LEFT = [
   "    form.elements['subject'].value",
   "  const message =",
   "    form.elements['message'].value",
-  "  window.location.href =",
-  "    `mailto:paolo.antonini",
-  "      .dev@gmail.com",
-  "      ?subject=${subject}",
-  "      &body=${body}`",
+  "  const body = `${lang === 'fr'",
+  "    ? 'Nom' : 'Name'}: ${name}`",
+  "  const mailtoLink = `mailto:${contactEmail}",
+  "    ?subject=${encodeURIComponent(subject)}",
+  "    &body=${encodeURIComponent(body)}`",
+  "  window.location.href = mailtoLink",
   "}",
 ]
 
 const CODE_RIGHT = [
-  "function useActiveSection(ids) {",
+  "function useActiveSection(sectionIds) {",
   "  const [active, setActive]",
   "    = useState('')",
   "  useEffect(() => {",
@@ -122,7 +123,7 @@ const CODE_RIGHT = [
   "          '-50% 0px -50% 0px'",
   "        }",
   "      )",
-  "    ids.forEach(id => {",
+  "    sectionIds.forEach(id => {",
   "      const el =",
   "        document",
   "          .getElementById(id)",
@@ -133,6 +134,18 @@ const CODE_RIGHT = [
   "  }, [ids])",
   "  return active",
   "}",
+  "const techGroups = [",
+  "  ['Java', 'Python', 'JavaScript', 'TypeScript',",
+  "   'Go', 'C', 'C++'],",
+  "  ['React', 'Node.js', 'HTML5', 'CSS3'],",
+  "  ['Expo', 'Electron', 'Unity', 'Godot'],",
+  "  ['FastAPI', 'PostgreSQL', 'Docker',",
+  "   'Kubernetes', 'Linux'],",
+  "]",
+  "const personalProjects = [",
+  "  'Flowday', 'OpenMediaScan',",
+  "  'Please, Be Better', 'Steamy',",
+  "]",
   "const sectionIds = [",
   "  'about',",
   "  'skills',",
@@ -385,28 +398,51 @@ function Hero({ lang }) {
   )
 }
 
-const techList = [
-  { name: 'JavaScript', icon: 'javascript' },
-  { name: 'TypeScript', icon: 'typescript' },
-  { name: 'Python', icon: 'python' },
-  { name: 'Java', icon: 'openjdk' },
-  { name: 'Go', icon: 'go' },
-  { name: 'C', icon: 'c' },
-  { name: 'C++', icon: 'cplusplus' },
-  { name: 'HTML5', icon: 'html5' },
-  { name: 'CSS3', icon: 'css' },
-  { name: 'React', icon: 'react' },
-  { name: 'Expo', icon: 'expo' },
-  { name: 'Electron', icon: 'electron' },
-  { name: 'Node.js', icon: 'nodedotjs' },
-  { name: 'Bun', icon: 'bun' },
-  { name: 'PostgreSQL', icon: 'postgresql' },
-  { name: 'Drizzle', icon: 'drizzle' },
-  { name: 'Godot', icon: 'godotengine' },
-  { name: 'Docker', icon: 'docker' },
-  { name: 'Linux', icon: 'linux' },
-  { name: 'Git', icon: 'git' },
-  { name: 'GitHub', icon: 'github' },
+const techGroups = [
+  {
+    fr: 'Langages',
+    en: 'Languages',
+    items: [
+      { name: 'Java', icon: 'openjdk' },
+      { name: 'Python', icon: 'python' },
+      { name: 'JavaScript', icon: 'javascript' },
+      { name: 'TypeScript', icon: 'typescript' },
+      { name: 'Go', icon: 'go' },
+      { name: 'C', icon: 'c' },
+      { name: 'C++', icon: 'cplusplus' },
+    ],
+  },
+  {
+    fr: 'Web',
+    en: 'Web',
+    items: [
+      { name: 'React', icon: 'react' },
+      { name: 'Node.js', icon: 'nodedotjs' },
+      { name: 'HTML5', icon: 'html5' },
+      { name: 'CSS3', icon: 'css' },
+    ],
+  },
+  {
+    fr: 'Applications & développement de jeux',
+    en: 'Applications & Game Development',
+    items: [
+      { name: 'Expo', icon: 'expo' },
+      { name: 'Electron', icon: 'electron' },
+      { name: 'Unity', icon: 'unity' },
+      { name: 'Godot', icon: 'godotengine' },
+    ],
+  },
+  {
+    fr: 'Backend, bases de données & infrastructure',
+    en: 'Backend, databases & infrastructure',
+    items: [
+      { name: 'FastAPI', icon: 'fastapi' },
+      { name: 'PostgreSQL', icon: 'postgresql' },
+      { name: 'Docker', icon: 'docker' },
+      { name: 'Kubernetes', icon: 'kubernetes' },
+      { name: 'Linux', icon: 'linux' },
+    ],
+  },
 ]
 
 function Skills({ lang }) {
@@ -429,26 +465,32 @@ function Skills({ lang }) {
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
-        {techList.map((tech, i) => (
-          <motion.div
-            className="tech-item"
-            key={tech.name}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.35, delay: i * 0.03, ease: [0.22, 1, 0.36, 1] }}
-            title={tech.name}
-          >
-            <img
-              src={`https://cdn.simpleicons.org/${tech.icon}`}
-              alt={tech.name}
-              width="30"
-              height="30"
-              loading="lazy"
-              onError={(e) => { e.currentTarget.style.display = 'none' }}
-            />
-            <span>{tech.name}</span>
-          </motion.div>
+        {techGroups.map((group) => (
+          <div className="tech-group" key={group.en}>
+            <div className="tech-grid">
+              {group.items.map((tech, i) => (
+                <motion.div
+                  className="tech-item"
+                  key={tech.name}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.35, delay: i * 0.03, ease: [0.22, 1, 0.36, 1] }}
+                  title={tech.name}
+                >
+                  <img
+                    src={`https://cdn.simpleicons.org/${tech.icon}`}
+                    alt={tech.name}
+                    width="30"
+                    height="30"
+                    loading="lazy"
+                    onError={(e) => { e.currentTarget.style.display = 'none' }}
+                  />
+                  <span>{tech.name}</span>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         ))}
       </motion.div>
     </section>
@@ -457,50 +499,52 @@ function Skills({ lang }) {
 
 const personalProjects = [
   {
-    id: 'osadeo',
-    date: { fr: 'Nov 2025', en: 'Nov 2025' },
-    title: 'Osadeo Studio',
+    id: 'flowday',
+    date: { fr: 'Projet personnel', en: 'Personal project' },
+    title: 'Flowday',
     desc: {
-      fr: "Osadeo Studio c'est un studio indépendant de jeux vidéo créé entre amis, par passion. On travaille actuellement sur notre premier jeu sous Godot. C'est un projet long terme qui nous tient vraiment à coeur.",
-      en: "Osadeo Studio is an independent video game studio created between friends, out of passion. We're currently working on our first game in Godot. It's a long-term project we really care about.",
+      fr: "Application mobile de planification personnelle développée avec React Native et Expo. Le projet expérimente une expérience mobile pensée pour iOS, avec organisation des journées, tâches et habitudes.",
+      en: "A personal planning mobile app built with React Native and Expo. The project experiments with an iOS-focused mobile experience for organizing days, tasks, and habits.",
     },
-    tags: ['Groupe', 'Studio Indé', 'Game Dev'],
-    link: 'https://osadeo.com/',
+    role: { fr: 'Propriétaire et développeur', en: 'Owner and developer' },
+    tags: ['React Native', 'Expo', 'TypeScript'],
+    link: 'https://github.com/PayExe/Flowday',
   },
   {
-    id: 'bhost',
-    date: { fr: 'Nov 2025', en: 'Nov 2025' },
-    title: 'BHOST',
+    id: 'openmediascan',
+    date: { fr: 'Projet collaboratif', en: 'Collaborative project' },
+    title: 'OpenMediaScan',
     desc: {
-      fr: "Un jeu développé sous Godot dans le cadre d'Osadeo Studio. BHOST c'est une chasse aux fantômes... pas comme les autres. Un concept original qu'on développe à plusieurs, mêlant exploration et gameplay unique.",
-      en: "A game developed in Godot as part of Osadeo Studio. BHOST is a ghost hunt... unlike any other. An original concept mixing exploration and unique gameplay.",
+      fr: "Plateforme web dédiée à la lecture de mangas et manhuas, avec une architecture séparant le frontend, l'API et les services d'infrastructure.",
+      en: "A web platform for reading manga and manhua, with an architecture separating the frontend, API, and infrastructure services.",
     },
-    tags: ['Godot', 'GDScript', 'Multiplayer'],
-    link: 'https://github.com/osadeo-studio',
-    inProgress: true,
+    role: { fr: 'Développeur contributeur', en: 'Contributing developer' },
+    tags: ['Next.js', 'Hono', 'PostgreSQL', 'Docker'],
+    link: 'https://github.com/SkyVence/openmediascan',
   },
   {
-    id: 'nswebsite',
-    date: { fr: 'Sept 2025', en: 'Sep 2025' },
-    title: 'NS Website',
+    id: 'please-be-better',
+    date: { fr: "Projet d'équipe", en: 'Team project' },
+    title: 'Please, Be Better',
     desc: {
-      fr: "Site que j'ai créé pour mon meilleur ami, artiste du label NS!! Records. Fait à l'origine comme cadeau d'anniversaire, le but c'était de mettre en avant son univers musical avec un design dark, des animations de terminal et une DA rétro choisie par l'artiste lui-même.",
-      en: "Website I created for my best friend, artist of the NS!! Records label. Originally a birthday gift: dark design, terminal animations and retro art direction chosen by the artist himself.",
+      fr: "Jeu 2D conçu en 48 heures par une équipe de cinq développeurs avec Unity et C#. J'ai principalement pris en charge l'architecture du projet et le développement des fonctionnalités principales.",
+      en: "A 2D game designed in 48 hours by a team of five developers using Unity and C#. I was mainly responsible for the project architecture and the development of its core features.",
     },
-    tags: ['Web', 'HTML/CSS', 'JS'],
-    link: 'https://github.com/PayExe/NSWEBSITE',
+    role: { fr: 'Développeur principal, architecture & développement', en: 'Lead developer, architecture & development' },
+    tags: ['Unity 6', 'C#', '48h Game Jam'],
+    link: 'https://github.com/NepNath/Please_Be_Better_Legacy',
   },
   {
     id: 'steamy',
-    date: { fr: 'Juil 2025', en: 'Jul 2025' },
+    date: { fr: 'Projet personnel', en: 'Personal project' },
     title: 'Steamy',
     desc: {
-      fr: "Steamy est un bot Discord qui permet de créer et gérer une wishlist de jeux Steam. Il analyse régulièrement les promotions et notifie les utilisateurs lorsque les jeux suivis passent en réduction. Le projet inclut également plusieurs fonctionnalités supplémentaires pour améliorer l'expérience utilisateur.",
-      en: "Discord bot connecting my server to Steam. Personal wishlist, game search, detailed info with prices and reviews, random game, autocomplete, channel restriction and anti-spam. My first real personal JS project.",
+      fr: "Bot Discord connecté à l'API open source de Steam pour gérer une wishlist, consulter les détails des jeux et repérer les meilleures promotions. Il propose aussi des commandes communautaires pour enrichir l'expérience du serveur.",
+      en: "A Discord bot connected to Steam's open-source API for managing a wishlist, viewing game details, and finding the best deals. It also provides community commands to improve the server experience.",
     },
+    role: { fr: 'Conception et développement complet', en: 'Full design and development' },
     tags: ['Discord.js', 'Node.js', 'Steam API'],
     link: 'https://github.com/PayExe/Steamy',
-    inProgress: true,
   },
 ]
 
@@ -531,21 +575,22 @@ function Projects({ lang }) {
             viewport={{ once: true }}
             transition={{ duration: 0.45, delay: i * 0.07, ease: [0.22, 1, 0.36, 1] }}
           >
-            <div className="project-date-col">
-              <span className="project-date">{p.date[lang]}</span>
-            </div>
+            <div className="project-date-col" aria-hidden="true" />
             <div className="project-line">
               <div className="project-dot" />
             </div>
             <div className="project-card">
-              <h3>
-                {p.title}
+               <h3>
+                 {p.title}
                 {p.inProgress && (
                   <span className="badge-progress">{lang === 'fr' ? 'En cours' : 'In progress'}</span>
-                )}
-              </h3>
-              <p>{p.desc[lang]}</p>
-              <div className="tag-row">
+                 )}
+               </h3>
+               <p>{p.desc[lang]}</p>
+               <div className="project-role">
+                 <strong>{lang === 'fr' ? 'Rôle' : 'Role'}:</strong> {p.role[lang]}
+               </div>
+               <div className="tag-row">
                 {p.tags.map((tag, idx) => <span key={`${p.id}-tag-${idx}`} className="tag">{tag}</span>)}
               </div>
               <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link">
